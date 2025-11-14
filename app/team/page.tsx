@@ -2,8 +2,9 @@
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { Linkedin, Twitter } from "lucide-react"
+import { Linkedin, Twitter } from 'lucide-react'
 import { Background3D } from "@/components/3d-background"
+import { HeaderTopBar } from "@/components/header-top-bar"
 
 const teamMembers = [
   {
@@ -47,6 +48,7 @@ const teamMembers = [
 export default function Team() {
   return (
     <div className="min-h-screen bg-background">
+      <HeaderTopBar />
       <Navbar />
 
       {/* Hero Section - Added 3D background animation */}

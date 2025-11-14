@@ -4,9 +4,10 @@ import type React from "react"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import { Mail, Phone, MapPin, Send } from 'lucide-react'
 import { useState } from "react"
 import { Background3D } from "@/components/3d-background"
+import { HeaderTopBar } from "@/components/header-top-bar"
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -33,6 +34,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-background">
+      <HeaderTopBar />
       <Navbar />
 
       {/* Hero Section - Added 3D background animation */}

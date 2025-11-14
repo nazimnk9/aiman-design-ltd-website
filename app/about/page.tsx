@@ -2,8 +2,9 @@
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { Check } from "lucide-react"
+import { Check } from 'lucide-react'
 import { Background3D } from "@/components/3d-background"
+import { HeaderTopBar } from "@/components/header-top-bar"
 
 const values = [
   "Exceptional Quality",
@@ -17,6 +18,7 @@ const values = [
 export default function About() {
   return (
     <div className="min-h-screen bg-background">
+      <HeaderTopBar />
       <Navbar />
 
       {/* Hero Section - Added 3D background animation */}

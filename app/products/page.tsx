@@ -4,6 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { ProductCard } from "@/components/product-card"
 import { Background3D } from "@/components/3d-background"
+import { HeaderTopBar } from "@/components/header-top-bar"
 
 const products = [
   {
@@ -71,6 +72,7 @@ const products = [
 export default function Products() {
   return (
     <div className="min-h-screen bg-background">
+      <HeaderTopBar />
       <Navbar />
 
       {/* Hero Section - Added 3D background animation */}
