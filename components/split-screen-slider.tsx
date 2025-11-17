@@ -1080,7 +1080,7 @@ export function SplitScreenSlider({ slides, autoPlay = true, interval = 6000 }: 
             <line x1="12" y1="0" x2="12" y2="36" stroke="white" strokeWidth="1.5"/>
             <polyline 
               ref={downArrowRef}
-              points="2,31 12,40 22,31" 
+              points="2,31 12,36 22,31" 
               stroke="white" 
               strokeWidth="1.5" 
               fill="none"
