@@ -1002,7 +1002,7 @@ export function SplitScreenSlider({ slides, autoPlay = true, interval = 6000 }: 
   const rightSlide = slides[(current + 1) % slides.length]
 
   return (
-    <div className="relative w-full h-[550px] md:h-[750px] lg:h-[850px] bg-black overflow-hidden">
+    <div className="relative w-full h-[550px] md:h-[920px] lg:h-[492px] xl:h-[700px] 2xl:h-[850px] bg-black overflow-hidden">
       {/* Left Half */}
       <div className="absolute left-0 top-0 w-1/2 h-full flex items-center justify-center">
         <div ref={leftRef} className="relative w-full h-full">
