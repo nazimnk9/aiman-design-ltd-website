@@ -1147,7 +1147,7 @@ function CategorySlide({ title, image, categories, side }: CategorySectionProps)
       {/* Text Content Section - For Right Side (Desktop) */}
       {side === "right" && (
         <div className="w-full max-w-sm mb-8 hidden lg:block">
-          <div className="relative bg-gradient-to-br from-white to-gray-50/80 rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 backdrop-blur-sm">
+          <div className="relative p-6 md:p-8 border border-gray-100">
             <div className="absolute -top-3 left-6 bg-[#103E01] text-white px-4 py-1 rounded-full text-sm font-semibold">
               OUR APPROACH
             </div>
@@ -1200,7 +1200,7 @@ function CategorySlide({ title, image, categories, side }: CategorySectionProps)
 
       {/* Text Content Section - For Left Side (Desktop) and Both Sides (Mobile/Tablet) */}
       <div className={`relative w-full max-w-sm ${side === "left" ? "mt-12" : "mt-8 lg:mt-0"} ${side === "right" ? "block lg:hidden" : ""}`}>
-        <div className="relative bg-gradient-to-br from-white to-gray-50/80 rounded-2xl p-6 md:p-8 shadow-lg border border-gray-100 backdrop-blur-sm">
+        <div className="relative p-6 md:p-8 border border-gray-100">
           <div className="absolute -top-3 left-6 bg-[#103E01] text-white px-4 py-1 rounded-full text-sm font-semibold">
             {side === "left" ? "OUR PROCESS" : "OUR APPROACH"}
           </div>

@@ -1002,7 +1002,7 @@ export function SplitScreenSlider({ slides, autoPlay = true, interval = 6000 }: 
   const rightSlide = slides[(current + 1) % slides.length]
 
   return (
-    <div className="relative w-full h-[550px] md:h-[890px] lg:h-[470px] xl:h-[670px] 2xl:h-[820px] bg-black overflow-hidden">
+    <div className="relative w-full h-[550px] md:h-[890px] lg:h-[470px] xl:h-[670px] 2xl:h-[820px] bg-white overflow-hidden">
       {/* Left Half */}
       <div className="absolute left-0 top-0 w-1/2 h-full flex items-center justify-center">
         <div ref={leftRef} className="relative w-full h-full">
@@ -1046,7 +1046,7 @@ export function SplitScreenSlider({ slides, autoPlay = true, interval = 6000 }: 
       </div>
 
       {/* Divider Line */}
-      <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-transparent via-primary/50 to-transparent z-30 transform -translate-x-1/2" />
+      {/* <div className="absolute left-1/2 top-0 w-1 h-full bg-gradient-to-b from-transparent via-primary/50 to-transparent z-30 transform -translate-x-1/2" /> */}
 
       {/* Right Half */}
       <div className="absolute right-0 top-0 w-1/2 h-full flex items-center justify-center">

@@ -1,6 +1,6 @@
 export function AboutSection() {
   return (
-    <section className="relative bg-white mt-18 md:mt-0 py-15 md:py-34 lg:py-32">
+    <section className="relative bg-white mt-18 md:mt-0 py-15 md:py-34 lg:py-32 ml-2 md:ml-0 lg:ml-2 xl:ml-18 2xl:ml-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-row md:flex-row lg:flex-row xl:flex-row items-stretch lg:gap-0 relative z-30">
           {/* Left side - Image container with overlap effect */}
