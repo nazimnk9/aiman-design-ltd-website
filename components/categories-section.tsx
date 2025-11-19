@@ -1146,15 +1146,15 @@ function CategorySlide({ title, image, categories, side }: CategorySectionProps)
     >
       {/* Text Content Section - For Right Side (Desktop) */}
       {side === "right" && (
-        <div className="w-full max-w-sm mb-8 hidden lg:block">
-          <div className="relative p-6 md:p-8 border border-gray-100">
-            <div className="absolute -top-3 left-6 bg-[#103E01] text-white px-4 py-1 rounded-full text-sm font-semibold">
+        <div className="w-full max-w-sm mb-8 hidden lg:block pl-1">
+          <div className="relative p-6 md:p-8">
+            <div className="absolute -top-3 left-0 bg-[#103E01] text-white px-4 py-1 rounded-full text-sm font-semibold">
               OUR APPROACH
             </div>
+          </div>
             <p className="text-foreground/90 leading-relaxed text-sm md:text-base tracking-wide">
               {displayedText}
             </p>
-          </div>
         </div>
       )}
 
@@ -1176,7 +1176,11 @@ function CategorySlide({ title, image, categories, side }: CategorySectionProps)
         )}
 
         {/* Image Container with Text Inside */}
-        <div className="bg-amber-100/40 rounded-2xl overflow-hidden aspect-square relative z-0 shadow-xl">
+        <div className={`bg-amber-100/40 overflow-hidden aspect-square relative z-0 shadow-xl ${
+          side === "left" 
+            ? "border-t-[1px] border-l-[1px] border-[#103E01]" 
+            : "border-b-[1px] border-r-[1px] border-[#103E01]"
+        }`}>
           <img
             src={image || "/placeholder.svg"}
             alt={title}
@@ -1199,15 +1203,15 @@ function CategorySlide({ title, image, categories, side }: CategorySectionProps)
       </div>
 
       {/* Text Content Section - For Left Side (Desktop) and Both Sides (Mobile/Tablet) */}
-      <div className={`relative w-full max-w-sm ${side === "left" ? "mt-12" : "mt-8 lg:mt-0"} ${side === "right" ? "block lg:hidden" : ""}`}>
-        <div className="relative p-6 md:p-8 border border-gray-100">
-          <div className="absolute -top-3 left-6 bg-[#103E01] text-white px-4 py-1 rounded-full text-sm font-semibold">
+      <div className={`pl-1 relative w-full max-w-sm ${side === "left" ? "mt-12" : "mt-8 lg:mt-0"} ${side === "right" ? "block lg:hidden" : ""}`}>
+        <div className="relative p-6 md:p-8">
+          <div className="absolute -top-3 left-0 bg-[#103E01] text-white px-4 py-1 rounded-full text-sm font-semibold">
             {side === "left" ? "OUR PROCESS" : "OUR APPROACH"}
           </div>
+        </div>
           <p className="text-foreground/90 leading-relaxed text-sm md:text-base tracking-wide">
             {displayedText}
           </p>
-        </div>
       </div>
     </div>
   )

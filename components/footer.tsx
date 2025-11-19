@@ -23,7 +23,7 @@ export function Footer() {
                 alt="AIMAN Logo"
                 width={50}
                 height={50}
-                className="h-20 w-auto filter drop-shadow-lg"
+                className="h-16 w-auto filter drop-shadow-lg"
               />
             </div>
             <p className="leading-relaxed font-medium" style={{ color: "#6b7280" }}>
