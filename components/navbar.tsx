@@ -68,6 +68,8 @@ export function Navbar() {
                   className="font-medium transition-colors relative group"
                   style={{
                     color: "#0A0F1F",
+                    fontWeight: "500",
+                    fontSize: "19px"
                   }}
                 >
                   {item.label}
@@ -122,7 +124,7 @@ export function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block px-4 py-2 rounded-lg transition-colors"
                   style={{
-                    color: "var(--navbar-text)",
+                    color: "#0A0F1F",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "rgba(0, 193, 110, 0.1)";

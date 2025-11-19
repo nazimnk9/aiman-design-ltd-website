@@ -243,6 +243,7 @@
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import About from "./about/page"
 import { SplitScreenSlider } from "@/components/split-screen-slider"
 //import { SectionCard } from "@/components/section-card"
 import { Background3D } from "@/components/3d-background"
@@ -250,6 +251,8 @@ import { Mail, Users, Palette, Globe } from 'lucide-react'
 import Link from "next/link"
 import { HeaderTopBar } from "@/components/header-top-bar"
 import { CategoriesSection } from "@/components/categories-section"
+import { AboutSection } from "@/components/about"
+
 
 const heroSlides = [
   {
@@ -282,18 +285,17 @@ export default function Home() {
 
       {/* Hero Split Screen Slider - CHANGE: Replaced Carousel with SplitScreenSlider */}
       <SplitScreenSlider slides={heroSlides} autoPlay interval={6000} />
-
+      <AboutSection />
       {/* Home Section - Added 3D background animation */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 overflow-hidden">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 md:py-34 lg:py-32 overflow-hidden">
         {/* <Background3D type="home" /> */}
         <div className="relative z-10">
-          <div className="text-center mb-16 animate-fadeInUp">
+          {/* <div className="text-center mb-16 animate-fadeInUp">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Welcome to AIMAN</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Experience the perfect blend of style, comfort, and quality in every piece we create.
             </p>
-          </div>
-
+          </div> */}
           {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <SectionCard
               icon={<Palette />}
@@ -330,7 +332,7 @@ export default function Home() {
       {/* Categories Section - Replaced SectionCard grid with new CategoriesSection component featuring For Women/For Men design with sliders */}
 
       {/* About Section - Added 3D background animation */}
-      <section className="relative bg-gradient-to-br from-secondary to-background py-20 md:py-32 overflow-hidden">
+      {/* <section className="relative bg-gradient-to-br from-secondary to-background py-20 md:py-32 overflow-hidden">
         <Background3D type="about" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -360,7 +362,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Section - Added 3D background animation */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 overflow-hidden">

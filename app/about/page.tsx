@@ -646,6 +646,88 @@
 // }
 
 
+// "use client"
+
+// import { Navbar } from "@/components/navbar"
+// import { Footer } from "@/components/footer"
+// import { Check } from 'lucide-react'
+// import { Background3D } from "@/components/3d-background"
+// import { HeaderTopBar } from "@/components/header-top-bar"
+
+// const values = [
+//   "Exceptional Quality",
+//   "Sustainable Practices",
+//   "Customer Excellence",
+//   "Innovation",
+//   "Integrity",
+//   "Community Focus",
+// ]
+
+// export default function About() {
+//   return (
+//     <div className="min-h-screen bg-background">
+//       <HeaderTopBar />
+//       <Navbar />
+
+//       <section className="relative bg-gradient-to-br from-primary to-accent text-white py-20 md:py-32 overflow-hidden">
+//         <Background3D type="about" />
+//         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <div className="text-center animate-fadeInUp">
+//             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-balance">About AIMAN</h1>
+//             <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto">Crafting excellence since day one</p>
+//           </div>
+//         </div>
+//       </section>
+
+
+//       {/* Hero Section - Updated with proper image overlap */}
+//       <section className="relative bg-white mt-20 md:mt-0 py-5 md:py-32">
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <div className="flex flex-row md:flex-row lg:flex-row xl:flex-row items-stretch lg:gap-0 relative z-30">
+//             {/* Left side - Image container with overlap effect */}
+//             <div className="w-full md:w-1/2 animate-fadeInLeft relative">
+//               <div className="rounded-lg p-1 md:p-8 flex items-center justify-center min-h-32 md:min-h-96 h-full md:pr-0 mt-5 md:mt-2 lg:mt-24 xl:mt-30">
+//                 <div className="relative w-full h-full max-w-sm md:max-w-2xl">
+//                   <img
+//                     src="/about.png"
+//                     alt="Organic Textiles - Professional model"
+//                     className="w-full h-full object-cover"
+//                   />
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* Right side - Content that overlaps the image */}
+//             <div className="w-full md:w-1/2 -ml-10 md:-ml-20 lg:-ml-28 mt-14 md:mt-0 flex items-center animate-fadeInUp relative">
+//               <div className="space-y-8 md:space-y-8 p-1 md:p-8 lg:p-12 w-full">
+//                 <div>
+//                   <h1 className="text-xl md:text-5xl lg:text-6xl font-bold text-foreground mb-1 md:mb-2 text-balance">
+//                     GARMENT MANUFACTURER WITH PRODUCT SENSITIVITY
+//                   </h1>
+//                   {/* <p className="text-xs md:text-sm tracking-widest text-muted-foreground uppercase mt-0 md:mt-2">
+//                     FOR A BETTER FUTURE
+//                   </p> */}
+//                 </div>
+
+//                 <div className="prose prose-lg max-w-none">
+//                   <p className="text-xs md:text-lg text-muted-foreground leading-relaxed mb-1 md:mb-6">
+//                     Aiman Design ltd is one stop solution provider and garment manufacturer in Bangladesh.
+//                   </p>
+//                   <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">
+//                     Aiman Design Ltd is an apparel sourcing and manufacturing in Wovens including Denims, Non denims Padded Jackets and Pants, Work wear Products, Circular Knit, and Flat Knits. We have wide production facilities, based on long term partnerships with manufacturers and fabric suppliers in Asia.
+//                   </p>
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+
+//       <Footer />
+//     </div>
+//   )
+// }
+
 "use client"
 
 import { Navbar } from "@/components/navbar"
@@ -653,6 +735,7 @@ import { Footer } from "@/components/footer"
 import { Check } from 'lucide-react'
 import { Background3D } from "@/components/3d-background"
 import { HeaderTopBar } from "@/components/header-top-bar"
+import { AboutSection } from "@/components/about"
 
 const values = [
   "Exceptional Quality",
@@ -679,49 +762,7 @@ export default function About() {
         </div>
       </section>
 
-
-      {/* Hero Section - Updated with proper image overlap */}
-      <section className="relative bg-white mt-20 md:mt-0 py-5 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-row md:flex-row lg:flex-row xl:flex-row items-stretch lg:gap-0 relative z-30">
-            {/* Left side - Image container with overlap effect */}
-            <div className="w-full md:w-1/2 animate-fadeInLeft relative ml-30 md:ml-25">
-              <div className="rounded-lg p-1 md:p-8 flex items-center justify-center min-h-32 md:min-h-96 h-full md:pr-0 mt-5 md:mt-2 lg:mt-24 xl:mt-30">
-                <div className="relative w-full h-full max-w-sm md:max-w-2xl">
-                  <img
-                    src="/about.png"
-                    alt="Organic Textiles - Professional model"
-                    className="w-full h-full object-cover overflow-visible"
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Right side - Content that overlaps the image */}
-            <div className="w-full md:w-1/2 -mr-3 md:mr-15 lg:-ml-28 mt-14 md:mt-0 flex items-center animate-fadeInUp relative">
-              <div className="space-y-8 md:space-y-8 p-1 md:p-8 lg:p-12 w-full">
-                <div>
-                  <h1 className="text-xl md:text-5xl lg:text-6xl font-bold text-foreground mb-1 md:mb-2 text-balance">
-                    GARMENT MANUFACTURER WITH PRODUCT SENSITIVITY
-                  </h1>
-                  {/* <p className="text-xs md:text-sm tracking-widest text-muted-foreground uppercase mt-0 md:mt-2">
-                    FOR A BETTER FUTURE
-                  </p> */}
-                </div>
-
-                <div className="prose prose-lg max-w-none">
-                  <p className="text-xs md:text-lg text-muted-foreground leading-relaxed mb-1 md:mb-6">
-                    Aiman Design ltd is one stop solution provider and garment manufacturer in Bangladesh.
-                  </p>
-                  <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">
-                    Aiman Design Ltd is an apparel sourcing and manufacturing in Wovens including Denims, Non denims Padded Jackets and Pants, Work wear Products, Circular Knit, and Flat Knits. We have wide production facilities, based on long term partnerships with manufacturers and fabric suppliers in Asia.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <AboutSection />
 
       <Footer />
     </div>
