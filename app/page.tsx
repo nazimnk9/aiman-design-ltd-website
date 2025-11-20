@@ -287,7 +287,7 @@ export default function Home() {
       <SplitScreenSlider slides={heroSlides} autoPlay interval={6000} />
       <AboutSection />
       {/* Home Section - Added 3D background animation */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 md:py-34 lg:py-32 overflow-hidden">
+      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 md:py-34 lg:py-15 overflow-hidden">
         {/* <Background3D type="home" /> */}
         <div className="relative z-10">
           {/* <div className="text-center mb-16 animate-fadeInUp">
