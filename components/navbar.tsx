@@ -375,10 +375,10 @@ export function Navbar() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-18">
+          <div className="flex justify-between items-center h-22">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-               <Image src="/logo.png" alt="AIMAN Logo" width={40} height={40} className="h-16 w-auto" />
+               <Image src="/logo.png" alt="AIMAN Logo" width={44} height={40} className="h-18 w-auto" />
              </Link>
 
             <div className="hidden lg:flex gap-8 items-center justify-center flex-1">
@@ -386,11 +386,11 @@ export function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="font-medium transition-colors relative group"
+                  className="font-['Segoe_UI'] font-medium transition-colors relative group"
                   style={{
                     color: "#0A0F1F",
-                    fontWeight: "500",
-                    fontSize: "19px"
+                    fontWeight: "600",
+                    fontSize: "17px"
                   }}
                 >
                   {item.label}
