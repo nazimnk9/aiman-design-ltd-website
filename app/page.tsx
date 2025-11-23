@@ -462,27 +462,33 @@ import { AboutSection } from "@/components/about"
 const heroSlides = {
   left: [
     {
-      image: "/premium-garments-fashion-showcase.jpg",
-      title: "Manufacturing",
-      description: "Discover premium quality garments crafted with excellence",
-    },
-    {
-      image: "/luxury-apparel-textile-design.jpg",
-      title: "Sourcing",
-      description: "Every piece tells a story of dedication and artistry",
-    },
-  ],
-  right: [
-    {
-      image: "/trendy-modern-clothing-collection.jpg",
-      title: "Design",
-      description: "Explore our exclusive collection of contemporary designs",
-    },
-    {
-      image: "/remium-garments-fashion-showcase.jpg",
+      // image: "/remium-garments-fashion-showcase.jpg",
+      image: "/1_tudio-ZbDEws8Jo30-unsplash.webp",
       title: "Bulk Production",
       description: "Every piece tells a story of dedication and artistry",
     },
+    {
+      // image: "/premium-garments-fashion-showcase.jpg",
+      image: "/19697_1.webp",
+      title: "Manufacturing",
+      description: "Discover premium quality garments crafted with excellence",
+    }
+    
+    
+  ],
+  right: [
+    {
+      // image: "/luxury-apparel-textile-design.jpg",
+      image: "/1_miscellaneous-items-being-sold-yard-sale.webp",
+      title: "Sourcing",
+      description: "Every piece tells a story of dedication and artistry",
+    },
+    {
+      // image: "/trendy-modern-clothing-collection.jpg",
+      image: "/_1nellie-adamyan-J1YzvR1RWvo-unsplash.webp",
+      title: "Design",
+      description: "Explore our exclusive collection of contemporary designs",
+    }
   ]
 }
 
@@ -493,7 +499,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Split Screen Slider - CHANGE: Replaced Carousel with SplitScreenSlider */}
-      <SplitScreenSlider slides={heroSlides} autoPlay interval={6000} />
+      <SplitScreenSlider slides={heroSlides} autoPlay interval={8000} />
       <AboutSection />
       {/* Home Section - Added 3D background animation */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 md:py-34 lg:py-15 overflow-hidden">
