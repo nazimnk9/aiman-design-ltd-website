@@ -485,7 +485,7 @@ const heroSlides = {
     },
     {
       // image: "/trendy-modern-clothing-collection.jpg",
-      image: "/_1nellie-adamyan-J1YzvR1RWvo-unsplash.webp",
+      image: "/2_1nellie-adamyan-J1YzvR1RWvo-unsplash.webp",
       title: "Design",
       description: "Explore our exclusive collection of contemporary designs",
     }
