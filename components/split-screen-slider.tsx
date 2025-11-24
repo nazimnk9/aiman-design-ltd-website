@@ -805,7 +805,7 @@ interface SplitScreenSliderProps {
   interval?: number
 }
 
-export function SplitScreenSlider({ slides, autoPlay = true, interval = 6000 }: SplitScreenSliderProps) {
+export function SplitScreenSlider({ slides, autoPlay = true, interval = 8000 }: SplitScreenSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   
   const leftWrapperRef = useRef<HTMLDivElement>(null)
