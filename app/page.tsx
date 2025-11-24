@@ -457,6 +457,7 @@ import Link from "next/link"
 import { HeaderTopBar } from "@/components/header-top-bar"
 import { CategoriesSection } from "@/components/categories-section"
 import { AboutSection } from "@/components/about"
+import { IndustryStatsSection } from "@/components/industry-stats-section"
 
 
 const heroSlides = {
@@ -473,8 +474,8 @@ const heroSlides = {
       title: "Manufacturing",
       description: "Discover premium quality garments crafted with excellence",
     }
-    
-    
+
+
   ],
   right: [
     {
@@ -502,6 +503,7 @@ export default function Home() {
       <SplitScreenSlider slides={heroSlides} autoPlay interval={8000} />
       <AboutSection />
       {/* Home Section - Added 3D background animation */}
+      <IndustryStatsSection />
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-15 md:py-34 lg:py-15 overflow-hidden">
         {/* <Background3D type="home" /> */}
         <div className="relative z-10">
