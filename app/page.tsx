@@ -458,6 +458,7 @@ import { HeaderTopBar } from "@/components/header-top-bar"
 import { CategoriesSection } from "@/components/categories-section"
 import { AboutSection } from "@/components/about"
 import { IndustryStatsSection } from "@/components/industry-stats-section"
+import { ProductCategoriesSection } from "@/components/product-categories-section"
 
 
 const heroSlides = {
@@ -545,6 +546,8 @@ export default function Home() {
           <CategoriesSection />
         </div>
       </section>
+
+      <ProductCategoriesSection />
 
       {/* Categories Section - Replaced SectionCard grid with new CategoriesSection component featuring For Women/For Men design with sliders */}
 

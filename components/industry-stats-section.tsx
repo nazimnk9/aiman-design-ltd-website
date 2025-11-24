@@ -155,7 +155,7 @@ export function IndustryStatsSection() {
         },
         {
             number: "2",
-            label: "ADL countries of office",
+            label: "ADL countries of office\nBANGLADESH & LONDON",
         },
     ]
 
@@ -214,7 +214,7 @@ export function IndustryStatsSection() {
                                         {stat.number}
                                         {/* <span className="text-accent text-2xl md:text-3xl ml-1">+</span> */}
                                     </div>
-                                    <p className="text-white/90 text-sm md:text-base font-medium whitespace-pre-line">{stat.label}</p>
+                                    <p className="text-white text-sm md:text-base font-medium whitespace-pre-line">{stat.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -233,7 +233,7 @@ export function IndustryStatsSection() {
                                         {stat.number}
                                         {/* <span className="text-accent text-2xl md:text-3xl ml-1">+</span> */}
                                     </div>
-                                    <p className="text-white/90 text-sm md:text-base font-medium whitespace-pre-line">{stat.label}</p>
+                                    <p className="text-white text-sm md:text-base font-medium whitespace-pre-line">{stat.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -252,7 +252,7 @@ export function IndustryStatsSection() {
                                         {stat.number}
                                         {/* <span className="text-accent text-3xl ml-1">+</span> */}
                                     </div>
-                                    <p className="text-white/90 text-sm md:text-base font-medium whitespace-pre-line">{stat.label}</p>
+                                    <p className="text-white text-sm md:text-base font-medium whitespace-pre-line">{stat.label}</p>
                                 </div>
                             ))}
                         </div>
