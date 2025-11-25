@@ -562,6 +562,10 @@ import Image from "next/image"
 import { Facebook, Twitter, Instagram, Cookie as Google, Headphones, MessageSquare } from "lucide-react"
 import { useState } from "react"
 
+const bebasFont = {
+  fontFamily: "Bebas Neue, sans-serif",
+}
+
 export function Footer() {
   const [email, setEmail] = useState("")
 
@@ -644,7 +648,7 @@ export function Footer() {
                     size={50}
                 />
                 <div className="flex flex-col items-start text-start">
-                  <h6 className="font-bold text-black uppercase tracking-wider whitespace-nowrap" style={{fontSize: "8.5px"}}>
+                  <h6 className="font-bold text-black uppercase whitespace-nowrap" style={{ fontSize: "15.5px", ...bebasFont }}>
                     We Offer 24/7 Dedicated Support
                   </h6>
                   <p className="text-gray-500 text-xs mt-2">If you need support send us a message</p>

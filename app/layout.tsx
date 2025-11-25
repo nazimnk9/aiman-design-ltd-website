@@ -15,6 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+        rel="stylesheet"
+      />
       <body className={`font-sans antialiased`} style={{ fontFamily: '"Helvetica", "Arial", sans-serif' }}>{children}</body>
     </html>
   )
