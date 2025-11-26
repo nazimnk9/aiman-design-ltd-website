@@ -1498,7 +1498,7 @@ export function SplitScreenSlider({ slides, autoPlay = true, interval = 8000 }: 
                 {/* Left Overlay */}
                 <div className="absolute inset-0 flex flex-col justify-end items-start pb-24 px-8">
                   <div className="anim-element w-full">
-                    <div className="bg-black px-4 py-3 w-fit">
+                    <div className="bg-black px-1 py-1 w-fit">
                       <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-3 text-left">
                         {slide.title}
                       </h2>
@@ -1556,7 +1556,7 @@ export function SplitScreenSlider({ slides, autoPlay = true, interval = 8000 }: 
               {/* Right Overlay */}
               <div className="absolute inset-0 flex flex-col justify-end items-end pb-24 px-8">
                 <div className="anim-element w-full">
-                  <div className="bg-black px-4 py-3 w-fit ml-auto">
+                  <div className="bg-black px-1 py-1 w-fit ml-auto">
                     <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-3 text-right">
                       {slide.title}
                     </h2>
