@@ -578,7 +578,7 @@ export function Footer() {
     <footer className="bg-background text-black relative overflow-hidden">
       {/* Top Section - Categories, Account, Links, Company, Support */}
       <div className="border-b border-gray-300">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12 md:py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12 md:py-42">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-0">
             {/* Categories */}
             <div className="text-center sm:text-left md:col-span-1">

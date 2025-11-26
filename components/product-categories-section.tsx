@@ -231,7 +231,7 @@ export function ProductCategoriesSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
 
   return (
-    <section className="w-full bg-background py-4 md:py-5">
+    <section className="w-full bg-background pb-20 md:pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-20 lg:px-16 xl:px-28">
         <div className="text-center mb-16 animate-fadeInUp">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Shop by Category</h2>
@@ -248,7 +248,7 @@ export function ProductCategoriesSection() {
             {categories.slice(0, 2).map((category, index) => (
               <div key={category.id} className="animate-fadeInUp" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div
-                  className="relative overflow-hidden rounded-lg h-100 md:h-150 cursor-pointer group"
+                  className="relative overflow-hidden rounded-lg h-80 md:h-60 lg:h-60 xl:h-60 2xl:h-80 cursor-pointer group"
                   onMouseEnter={() => setHoveredId(category.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
@@ -257,7 +257,7 @@ export function ProductCategoriesSection() {
                     <img
                       src={category.image || "/placeholder.svg"}
                       alt={category.name}
-                      className={`w-full h-full object-cover transition-transform duration-500 ease-out ${
+                      className={`w-full h-full object-fixed transition-transform duration-500 ease-out ${
                         hoveredId === category.id ? "scale-110" : "scale-100"
                       }`}
                     />
@@ -270,7 +270,7 @@ export function ProductCategoriesSection() {
                     }`}
                     style={{
                       backgroundImage: `url('/hover.jpg')`,
-                      backgroundSize: "cover",
+                      backgroundSize: "fixed",
                       backgroundPosition: "center",
                     }}
                   />
@@ -285,7 +285,7 @@ export function ProductCategoriesSection() {
                   {/* Content - Category Name */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                     <h3
-                      className={`text-3xl md:text-4xl font-bold text-white text-center transition-all duration-500 ease-out ${
+                      className={`text-3xl md:text-4xl font-bold text-white text-center transition-all duration-500 ease-out bg-black px-4 py-3 w-fit ${
                         hoveredId === category.id ? "scale-110 translate-y-0" : "scale-100"
                       }`}
                     >
@@ -320,8 +320,8 @@ export function ProductCategoriesSection() {
             {categories.slice(2, 3).map((category, index) => (
               <div key={category.id} className="animate-fadeInUp" style={{ animationDelay: `${(index + 2) * 0.1}s` }}>
                 <div
-                  className="relative overflow-hidden rounded-lg cursor-pointer group"
-                  style={{ height: "calc(2 * 37.5rem + 2rem)" }}
+                  className="relative overflow-hidden rounded-lg cursor-pointer group h-[calc(2*15rem+2rem)] xl:h-[calc(2*15rem+2rem)] 2xl:h-[calc(2*20rem+2rem)]"
+                  // style={{ height: "calc(2 * 20rem + 2rem)" }}
                   onMouseEnter={() => setHoveredId(category.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
@@ -330,7 +330,7 @@ export function ProductCategoriesSection() {
                     <img
                       src={category.image || "/placeholder.svg"}
                       alt={category.name}
-                      className={`w-full h-full object-cover transition-transform duration-500 ease-out ${
+                      className={`w-full h-full object-fixed transition-transform duration-500 ease-out ${
                         hoveredId === category.id ? "scale-110" : "scale-100"
                       }`}
                     />
@@ -343,7 +343,7 @@ export function ProductCategoriesSection() {
                     }`}
                     style={{
                       backgroundImage: `url('/hover.jpg')`,
-                      backgroundSize: "cover",
+                      backgroundSize: "fixed",
                       backgroundPosition: "center",
                     }}
                   />
@@ -358,7 +358,7 @@ export function ProductCategoriesSection() {
                   {/* Content - Category Name */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
                     <h3
-                      className={`text-3xl md:text-4xl font-bold text-white text-center transition-all duration-500 ease-out ${
+                      className={`text-3xl md:text-4xl font-bold text-white text-center transition-all duration-500 ease-out bg-black px-4 py-3 w-fit ${
                         hoveredId === category.id ? "scale-110 translate-y-0" : "scale-100"
                       }`}
                     >

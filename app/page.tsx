@@ -585,7 +585,7 @@ export default function Home() {
       </section> */}
 
       {/* Team Section - Added 3D background animation */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 overflow-hidden">
+      {/* <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 overflow-hidden">
         <Background3D type="team" />
         <div className="relative z-10">
           <div className="text-center mb-16 animate-fadeInUp">
@@ -620,10 +620,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section - Added 3D background animation */}
-      <section className="relative bg-gradient-to-br from-foreground to-primary text-white py-20 md:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-foreground to-primary text-white py-20 md:py-64 overflow-hidden">
         <Background3D type="contact" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fadeInUp">

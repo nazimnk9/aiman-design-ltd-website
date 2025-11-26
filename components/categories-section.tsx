@@ -1523,15 +1523,15 @@ function CategorySlide({ title, image, categories, side }: CategorySectionProps)
     <div ref={sectionRef} className="flex flex-col items-center">
       {/* Text Content Section - For Right Side (Desktop) */}
       {side === "right" && (
-        <div className="w-full max-w-sm mb-8 hidden lg:block pl-1">
-          <div className="relative p-6 md:p-8">
-            <div className="absolute -top-3 left-0 bg-[#5D9936] text-white px-4 py-1 rounded-full text-sm">
+        <div className="w-full max-w-sm mb-8 hidden lg:block">
+          <div className="relative p-6 md:p-30">
+            {/* <div className="absolute -top-3 left-0 bg-[#5D9936] text-white px-4 py-1 rounded-full text-sm">
               OUR APPROACH
-            </div>
-          </div>
-          <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">
+            </div> */}
+          <p className="absolute -top-1 left-0 text-xs md:text-lg text-muted-foreground leading-relaxed">
             {displayedText}
           </p>
+          </div>
         </div>
       )}
 
@@ -1583,11 +1583,11 @@ function CategorySlide({ title, image, categories, side }: CategorySectionProps)
 
       {/* Text Content Section - For Left Side (Desktop) and Both Sides (Mobile/Tablet) */}
       <div className={`pl-1 relative w-full max-w-sm ${side === "left" ? "mt-12" : "mt-8 lg:mt-0"} ${side === "right" ? "block lg:hidden" : ""}`}>
-        <div className="relative p-6 md:p-8">
+        {/* <div className="relative p-6 md:p-8">
           <div className="absolute -top-3 left-0 bg-[#5D9936] text-white px-4 py-1 rounded-full text-sm">
             {side === "left" ? "OUR PROCESS" : "OUR APPROACH"}
           </div>
-        </div>
+        </div> */}
         <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">
           {displayedText}
         </p>

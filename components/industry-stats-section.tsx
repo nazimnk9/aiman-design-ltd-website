@@ -162,7 +162,7 @@ export function IndustryStatsSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-15 md:py-34 lg:py-15 mt-8 md:mt-14 lg:mt-13 xl:mt-15 overflow-hidden"
+            className="relative w-full py-15 md:py-44 lg:py-75 mt-8 md:mt-14 lg:mt-13 xl:mt-15 overflow-hidden"
             style={{
                 backgroundImage: "url('/background.jpg')",
                 backgroundAttachment: "fixed",
@@ -176,7 +176,7 @@ export function IndustryStatsSection() {
             {/* Content Container */}
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-27 py-15 md:py-34 lg:py-15 overflow-hidden z-20">
                 {/* Mobile Layout */}
-                <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 items-center justify-center lg:items-start">
+                <div className="flex flex-col lg:flex-col gap-15 lg:gap-20 items-center justify-center lg:items-center">
                     {/* Left Side - Title Section */}
                     <div
                         className={`w-full lg:w-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"}`}

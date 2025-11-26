@@ -80,9 +80,9 @@ export function OffCanvasSidebar({ isOpen, onClose, isDesktop = false }: OffCanv
                 Premium Garments
               </p>
             </div> */}
-            <p className="text-sm leading-relaxed max-w-xs" style={{ color: "#6b7280" }}>
+            {/* <p className="text-sm leading-relaxed max-w-xs" style={{ color: "#6b7280" }}>
               Elevate your style with our carefully crafted collection of premium quality garments.
-            </p>
+            </p> */}
           </div>
 
           {/* Social Icons */}
