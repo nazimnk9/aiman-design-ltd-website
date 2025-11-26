@@ -162,7 +162,7 @@ export function IndustryStatsSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-15 md:py-44 lg:py-75 mt-8 md:mt-14 lg:mt-13 xl:mt-15 overflow-hidden"
+            className="relative w-full py-15 md:py-44 lg:py-55 mt-8 md:mt-14 lg:mt-13 xl:mt-15 overflow-hidden"
             style={{
                 backgroundImage: "url('/background.jpg')",
                 backgroundAttachment: "fixed",
