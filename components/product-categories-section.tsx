@@ -270,7 +270,7 @@ export function ProductCategoriesSection() {
                     }`}
                     style={{
                       backgroundImage: `url('/hover.jpg')`,
-                      backgroundSize: "fixed",
+                      backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   />
@@ -343,7 +343,7 @@ export function ProductCategoriesSection() {
                     }`}
                     style={{
                       backgroundImage: `url('/hover.jpg')`,
-                      backgroundSize: "fixed",
+                      backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
                   />
