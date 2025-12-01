@@ -597,6 +597,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 interface Category {
   id: string
@@ -625,6 +626,11 @@ const categories: Category[] = [
 
 export function ProductCategoriesSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const router = useRouter()
+
+  const handleCategoryClick = (categoryId: string) => {
+    router.push(`/products/${categoryId}`)
+  }
 
   return (
     <section className="w-full bg-background pb-20 md:pb-32">
@@ -651,6 +657,7 @@ export function ProductCategoriesSection() {
                       className="relative overflow-hidden rounded-lg h-80 md:h-60 lg:h-58 xl:h-77 2xl:h-87 cursor-pointer group"
                       onMouseEnter={() => setHoveredId(category.id)}
                       onMouseLeave={() => setHoveredId(null)}
+                      onClick={() => handleCategoryClick(category.id)}
                     >
                       {/* Base Image Container with proper scaling */}
                       <div className="absolute inset-0 overflow-hidden rounded-lg">
@@ -723,6 +730,7 @@ export function ProductCategoriesSection() {
                       className="relative overflow-hidden rounded-lg cursor-pointer group h-[calc(2*15rem+2rem)] lg:h-[calc(2*13.75rem+2rem)] xl:h-[calc(2*18.5rem+2rem)] 2xl:h-[calc(2*21rem+2rem)]"
                       onMouseEnter={() => setHoveredId(category.id)}
                       onMouseLeave={() => setHoveredId(null)}
+                      onClick={() => handleCategoryClick(category.id)}
                     >
                       {/* Base Image Container with proper scaling */}
                       <div className="absolute inset-0 overflow-hidden rounded-lg">
@@ -810,6 +818,7 @@ export function ProductCategoriesSection() {
                     className="relative overflow-hidden rounded-lg h-80 md:h-72 lg:h-60 xl:h-60 2xl:h-80 cursor-pointer group"
                     onMouseEnter={() => setHoveredId(category.id)}
                     onMouseLeave={() => setHoveredId(null)}
+                    onClick={() => handleCategoryClick(category.id)}
                   >
                     {/* Base Image Container with proper scaling */}
                     <div className="absolute inset-0 overflow-hidden rounded-lg">
@@ -882,6 +891,7 @@ export function ProductCategoriesSection() {
                     className="relative overflow-hidden rounded-lg cursor-pointer group h-[calc(2*15rem+2rem)] md:h-[calc(2*17.3rem+2rem)] xl:h-[calc(2*15rem+2rem)] 2xl:h-[calc(2*20rem+2rem)]"
                     onMouseEnter={() => setHoveredId(category.id)}
                     onMouseLeave={() => setHoveredId(null)}
+                    onClick={() => handleCategoryClick(category.id)}
                   >
                     {/* Base Image Container with proper scaling */}
                     <div className="absolute inset-0 overflow-hidden rounded-lg">

@@ -353,7 +353,7 @@ export function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
-    { label: "Products", href: "/products" },
+    { label: "Products", href: "/products/men" },
     { label: "Team", href: "/team" },
     { label: "Career", href: "/career" },
     { label: "Contact", href: "/contact" },
