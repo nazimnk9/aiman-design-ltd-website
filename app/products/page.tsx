@@ -401,6 +401,10 @@ interface Product {
   category: string
   discount?: number
   description?: string
+  style?: string
+  composition?: string
+  weight?: string
+  sewingOperation?: string
 }
 
 const categories = [
@@ -445,6 +449,10 @@ const suitsProducts: Product[] = [
     discount: 6,
     description:
       "Crafted from the brand's signature Trofeo wool, this suit features an impeccable fit and modern polish for a subtly sophisticated look and daylong comfort.",
+    style: "Zegna (ZG-001)",
+    composition: "100% Wool",
+    weight: "350 Grams",
+    sewingOperation: "Hand Stitched",
   },
   {
     id: "suit-2",
@@ -457,6 +465,10 @@ const suitsProducts: Product[] = [
     category: "Suits",
     description:
       "Finely textured Italian wool elevates this modern suit with limited structure for a more flexible feel.",
+    style: "Ted Baker (TB-205)",
+    composition: "95% Wool, 5% Elastane",
+    weight: "330 Grams",
+    sewingOperation: "Machine Stitched",
   },
   {
     id: "suit-3",
@@ -470,6 +482,10 @@ const suitsProducts: Product[] = [
     discount: 32,
     description:
       "A navy-blue color adds dapper appeal to this Italian suit that's styled by simplicity with flat-front trousers and classic notched lapels.",
+    style: "Boss (BOSS-150)",
+    composition: "100% Italian Wool",
+    weight: "370 Grams",
+    sewingOperation: "Collet using Cord",
   },
 ]
 
@@ -635,13 +651,13 @@ export default function Products() {
       <Breadcrumb items={breadcrumbItems} />
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <section className="w-full">
         {/* Categories Sidebar + Products - Single Row */}
         <ProductCategoriesSidebar breadcrumbLabel="MEN" categories={categories} selectedCategory={selectedCategory} />
 
         {/* Products Grid - Full Width */}
         <div className="mt-8">
-          <ProductsGrid products={getProductsByCategory()} />
+          <ProductsGrid products={getProductsByCategory()} breadcrumbName="men" />
         </div>
       </section>
 

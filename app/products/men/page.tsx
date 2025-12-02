@@ -157,6 +157,10 @@ interface Product {
   category: string
   discount?: number
   description?: string
+  style?: string
+  composition?: string
+  weight?: string
+  sewingOperation?: string
 }
 
 const categories = [
@@ -201,6 +205,10 @@ const menProducts: Product[] = [
     discount: 6,
     description:
       "Crafted from the brand's signature Trofeo wool, this suit features an impeccable fit and modern polish for a subtly sophisticated look and daylong comfort.",
+    style: "Zegna (ZG-001)",
+    composition: "100% Wool",
+    weight: "350 Grams",
+    sewingOperation: "Hand Stitched",
   },
   {
     id: "shirt-1",
@@ -213,6 +221,10 @@ const menProducts: Product[] = [
     category: "shirts",
     discount: 15,
     description: "Crafted from premium Egyptian cotton, this dress shirt offers exceptional comfort and breathability.",
+    style: "Zegna (ZG-SHIRT-001)",
+    composition: "100% Egyptian Cotton",
+    weight: "220 Grams",
+    sewingOperation: "Fine Stitched",
   },
   {
     id: "jeans-1",
@@ -225,6 +237,10 @@ const menProducts: Product[] = [
     category: "jeans",
     discount: 24,
     description: "Classic slim fit jeans in premium dark indigo denim.",
+    style: "Levi's 511 (LV-511-2024)",
+    composition: "99% Cotton, 1% Elastane",
+    weight: "580 Grams",
+    sewingOperation: "Chain Stitched",
   },
   {
     id: "active-1",
@@ -235,16 +251,37 @@ const menProducts: Product[] = [
     images: ["/running-shirt.jpg", "/training-tee.jpg"],
     category: "activewear",
     description: "Moisture-wicking Dri-FIT technology for optimal performance.",
+    style: "Nike (NK-DRYFIT-001)",
+    composition: "100% Polyester",
+    weight: "160 Grams",
+    sewingOperation: "Flat Seam Stitched",
   },
 ]
 
 export default function MenProducts() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
+  // const breadcrumbItems = [
+  //   { label: "KIDS", href: "/products/kids" },
+  //   { label: "WOMEN", href: "/products/women" },
+  //   { label: "MEN" },
+  // ]
+
   const breadcrumbItems = [
     { label: "KIDS", href: "/products/kids" },
     { label: "WOMEN", href: "/products/women" },
-    { label: "MEN" },
+    {
+      label: "MEN",
+      onClick: () => setSelectedCategory(null),
+    },
+    // ...(selectedCategory
+    //   ? [
+    //       {
+    //         label: categories.find((cat) => cat.id === selectedCategory)?.label || "",
+    //         onClick: () => setSelectedCategory(null),
+    //       },
+    //     ]
+    //   : []),
   ]
 
   const filteredProducts = selectedCategory
@@ -258,18 +295,17 @@ export default function MenProducts() {
 
       <Breadcrumb items={breadcrumbItems} />
 
-      <section className="">
-        <div className="bg-white border-b border-gray-200">
+      <section className="w-full">
+        
           <ProductCategoriesSidebar
           categories={categories}
           selectedCategory={selectedCategory || ""}
           breadcrumbLabel="MEN"
           onCategorySelect={setSelectedCategory}
         />
-        </div>
 
-        <div className="mt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <ProductsGrid products={filteredProducts} />
+        <div className="mt-8">
+          <ProductsGrid products={filteredProducts} breadcrumbName="men" />
         </div>
       </section>
 

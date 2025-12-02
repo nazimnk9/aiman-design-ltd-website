@@ -157,6 +157,10 @@ interface Product {
   category: string
   discount?: number
   description?: string
+  style?: string
+  composition?: string
+  weight?: string
+  sewingOperation?: string
 }
 
 const categories = [
@@ -200,6 +204,10 @@ const kidsProducts: Product[] = [
     category: "shirts",
     discount: 18,
     description: "Classic kids' dress shirt perfect for special occasions.",
+    style: "Polo Ralph Lauren (PRL-KIDS-01)",
+    composition: "100% Cotton",
+    weight: "150 Grams",
+    sewingOperation: "Machine Stitched",
   },
   {
     id: "shirt-k1",
@@ -210,6 +218,10 @@ const kidsProducts: Product[] = [
     images: ["/polo-shirt.jpg", "/oxford-shirt.jpg"],
     category: "shirts",
     description: "Comfortable polo shirt for everyday kids' wear.",
+    style: "Gap Kids (GAPK-POLO-02)",
+    composition: "98% Cotton, 2% Spandex",
+    weight: "140 Grams",
+    sewingOperation: "Collet using Cord",
   },
   {
     id: "jeans-k1",
@@ -222,6 +234,10 @@ const kidsProducts: Product[] = [
     category: "jeans",
     discount: 21,
     description: "Durable jeans designed for active kids.",
+    style: "Levi's Kids (LVKS-SLIM-03)",
+    composition: "100% Cotton Denim",
+    weight: "450 Grams",
+    sewingOperation: "Double Stitched",
   },
   {
     id: "active-k1",
@@ -234,16 +250,37 @@ const kidsProducts: Product[] = [
     category: "activewear",
     discount: 23,
     description: "Sporty set for kids' active lifestyle.",
+    style: "Nike Kids (NK-KIDS-SET-04)",
+    composition: "88% Polyester, 12% Spandex",
+    weight: "240 Grams",
+    sewingOperation: "Flat Seam Stitched",
   },
 ]
 
 export default function KidsProducts() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
+  // const breadcrumbItems = [
+  //   { label: "KIDS" },
+  //   { label: "WOMEN", href: "/products/women" },
+  //   { label: "MEN", href: "/products/men" },
+  // ]
+
   const breadcrumbItems = [
-    { label: "KIDS" },
+    {
+      label: "KIDS",
+      onClick: () => setSelectedCategory(null),
+    },
     { label: "WOMEN", href: "/products/women" },
     { label: "MEN", href: "/products/men" },
+    // ...(selectedCategory
+    //   ? [
+    //       {
+    //         label: categories.find((cat) => cat.id === selectedCategory)?.label || "",
+    //         onClick: () => setSelectedCategory(null),
+    //       },
+    //     ]
+    //   : []),
   ]
 
   const filteredProducts = selectedCategory
@@ -257,8 +294,8 @@ export default function KidsProducts() {
 
       <Breadcrumb items={breadcrumbItems} />
 
-      <section className="">
-        <div className="bg-white border-b border-gray-200">
+      <section className="w-full">
+       
 
         <ProductCategoriesSidebar
           categories={categories}
@@ -266,10 +303,10 @@ export default function KidsProducts() {
           breadcrumbLabel="KIDS"
           onCategorySelect={setSelectedCategory}
         />
-        </div>
+        
 
-        <div className="mt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <ProductsGrid products={filteredProducts} />
+        <div className="mt-8">
+          <ProductsGrid products={filteredProducts} breadcrumbName="kids" />
         </div>
       </section>
 

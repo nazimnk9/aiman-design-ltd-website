@@ -158,6 +158,10 @@ interface Product {
   category: string
   discount?: number
   description?: string
+  style?: string
+  composition?: string
+  weight?: string
+  sewingOperation?: string
 }
 
 const categories = [
@@ -201,6 +205,10 @@ const womenProducts: Product[] = [
     category: "suits",
     discount: 11,
     description: "Elegant women's suit crafted from premium wool with tailored fit.",
+    style: "Zegna Women (ZGW-001)",
+    composition: "100% Wool",
+    weight: "340 Grams",
+    sewingOperation: "Hand Stitched",
   },
   {
     id: "shirt-w1",
@@ -213,6 +221,10 @@ const womenProducts: Product[] = [
     category: "shirts",
     discount: 15,
     description: "Luxurious silk blend blouse for sophisticated style.",
+    style: "Boss (BOSS-BLOUSE-250)",
+    composition: "60% Silk, 40% Cotton",
+    weight: "185 Grams",
+    sewingOperation: "Fine Stitched",
   },
   {
     id: "jeans-w1",
@@ -225,6 +237,10 @@ const womenProducts: Product[] = [
     category: "jeans",
     discount: 20,
     description: "Iconic 501s with timeless fit and style.",
+    style: "Levi's 501W (LVW-501-2024)",
+    composition: "99% Cotton, 1% Elastane",
+    weight: "550 Grams",
+    sewingOperation: "Double Stitched",
   },
   {
     id: "active-w1",
@@ -237,16 +253,37 @@ const womenProducts: Product[] = [
     category: "activewear",
     discount: 23,
     description: "Complete training set for active women.",
+    style: "Adidas Women (ADW-TRAINING-01)",
+    composition: "90% Polyester, 10% Spandex",
+    weight: "320 Grams",
+    sewingOperation: "Bonded Seams",
   },
 ]
 
 export default function WomenProducts() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
-  const breadcrumbItems = [
+  // const breadcrumbItems = [
+  //   { label: "KIDS", href: "/products/kids" },
+  //   { label: "WOMEN" },
+  //   { label: "MEN", href: "/products/men" },
+  // ]
+
+   const breadcrumbItems = [
     { label: "KIDS", href: "/products/kids" },
-    { label: "WOMEN" },
+    {
+      label: "WOMEN",
+      onClick: () => setSelectedCategory(null),
+    },
     { label: "MEN", href: "/products/men" },
+    // ...(selectedCategory
+    //   ? [
+    //       {
+    //         label: categories.find((cat) => cat.id === selectedCategory)?.label || "",
+    //         onClick: () => setSelectedCategory(null),
+    //       },
+    //     ]
+    //   : []),
   ]
 
   const filteredProducts = selectedCategory
@@ -260,8 +297,8 @@ export default function WomenProducts() {
 
       <Breadcrumb items={breadcrumbItems} />
 
-      <section className="">
-        <div className="bg-white border-b border-gray-200">
+      <section className="w-full">
+        
 
         <ProductCategoriesSidebar
           categories={categories}
@@ -269,10 +306,9 @@ export default function WomenProducts() {
           breadcrumbLabel="WOMEN"
           onCategorySelect={setSelectedCategory}
         />
-        </div>
 
-        <div className="mt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <ProductsGrid products={filteredProducts} />
+        <div className="mt-8">
+          <ProductsGrid products={filteredProducts} breadcrumbName="women" />
         </div>
       </section>
 

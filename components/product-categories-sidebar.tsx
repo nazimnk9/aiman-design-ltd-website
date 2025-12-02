@@ -75,10 +75,110 @@
 // }
 
 
+// "use client"
+
+// import Image from "next/image"
+// import { ChevronLeft } from "lucide-react"
+
+// interface Category {
+//   id: string
+//   label: string
+//   icon: string
+//   href: string
+// }
+
+// interface ProductCategoriesSidebarProps {
+//   categories: Category[]
+//   selectedCategory: string
+//   breadcrumbLabel: string
+//   onCategorySelect?: (categoryId: string) => void
+// }
+
+// export function ProductCategoriesSidebar({
+//   categories,
+//   selectedCategory,
+//   breadcrumbLabel,
+//   onCategorySelect,
+// }: ProductCategoriesSidebarProps) {
+//   const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.label || ""
+//   const isProductTypeSelected = !["men", "women", "kids"].includes(selectedCategory)
+
+//   // Filter out the breadcrumb category from the grid (don't show KIDS, WOMEN, MEN in grid)
+//   const gridCategories = categories.filter((cat) => cat.id !== "men" && cat.id !== "women" && cat.id !== "kids")
+
+//   return (
+//     <>
+//     <div className="flex flex-col gap-6 px-4 sm:px-6 lg:px-8 py-8">
+//       <div className="flex items-center justify-between gap-180">
+//         {/* Selected Category Display - Left Side */}
+//         <div className="flex-1 min-w-[300px]">
+//           <div className="flex items-center gap-2 text-gray-900">
+//             <span className="text-base font-bold uppercase tracking-wide">{breadcrumbLabel}</span>
+//             {isProductTypeSelected && (
+//               <>
+//                 <ChevronLeft size={16} className="text-gray-600" />
+//                 <span className="text-base font-bold uppercase tracking-wide">{selectedLabel}</span>
+//                 {/* <ChevronLeft size={16} className="text-gray-600" />
+//                 <button
+//                   onClick={() => onCategorySelect?.(breadcrumbLabel.toLowerCase())}
+//                   className="text-base font-bold uppercase tracking-wide hover:opacity-70 transition-opacity cursor-pointer"
+//                 >
+//                   {selectedLabel}
+//                 </button> */}
+//               </>
+//             )}
+//           </div>
+//         </div>
+
+//         {/* Categories Grid - Right Side */}
+//         <div className="w-full grid grid-cols-4 gap-0">
+//           {gridCategories.map((category) => (
+//             <div
+//               key={category.id}
+//               className="flex flex-col items-center justify-center group"
+//             >
+//               <button
+//                 key={category.id}
+//                 onClick={() => onCategorySelect?.(category.id)}
+//                 className={`flex flex-col items-center gap-0 p-6 transition-all w-full border ${selectedCategory === category.id
+//                     ? "border-gray-900"
+//                     : "border-gray-200 hover:border-gray-900"
+//                   }`}
+//               >
+//                 <div className="w-50 h-50 flex items-center justify-center">
+//                   <Image
+//                     src={category.icon || "/placeholder.svg"}
+//                     alt={category.label}
+//                     width={350}
+//                     height={550}
+//                     className="w-full h-full object-contain"
+//                   />
+//                 </div>
+//               </button>
+
+//               {/* Category name below */}
+//               <p className="text-xs font-semibold text-gray-900 text-center mt-2 w-full line-clamp-2 group-hover:text-red-400">
+//                 {category.label}
+//               </p>
+//             </div>
+//           ))}
+//         </div>
+
+//       </div>
+
+//       {/* Full Width Border Below */}
+//     </div>
+//     <div className="w-full border-b border-gray-200"></div> 
+//     </>
+//   )
+// }
+
+
 "use client"
 
 import Image from "next/image"
-import { ChevronLeft } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useRef, useEffect } from "react"
 
 interface Category {
   id: string
@@ -100,18 +200,141 @@ export function ProductCategoriesSidebar({
   breadcrumbLabel,
   onCategorySelect,
 }: ProductCategoriesSidebarProps) {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
+  const [startX, setStartX] = useState(0)
+  const [scrollLeft, setScrollLeft] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
+  
   const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.label || ""
   const isProductTypeSelected = !["men", "women", "kids"].includes(selectedCategory)
 
-  // Filter out the breadcrumb category from the grid (don't show KIDS, WOMEN, MEN in grid)
+  // Filter out the breadcrumb category from the grid
   const gridCategories = categories.filter((cat) => cat.id !== "men" && cat.id !== "women" && cat.id !== "kids")
+  
+  const slidesToShow = {
+    mobile: 2,
+    tablet: 3,
+    desktop: 4
+  }
+  
+  const totalSlides = Math.ceil(gridCategories.length / slidesToShow.mobile)
+  const totalTabletSlides = Math.ceil(gridCategories.length / slidesToShow.tablet)
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!carouselRef.current) return
+    setIsDragging(true)
+    setStartX(e.pageX - carouselRef.current.offsetLeft)
+    setScrollLeft(carouselRef.current.scrollLeft)
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging || !carouselRef.current) return
+    e.preventDefault()
+    const x = e.pageX - carouselRef.current.offsetLeft
+    const walk = (x - startX) * 2
+    carouselRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  const handleMouseUp = () => {
+    setIsDragging(false)
+  }
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!carouselRef.current) return
+    const touch = e.touches[0]
+    setStartX(touch.pageX - carouselRef.current.offsetLeft)
+    setScrollLeft(carouselRef.current.scrollLeft)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!carouselRef.current) return
+    const touch = e.touches[0]
+    const x = touch.pageX - carouselRef.current.offsetLeft
+    const walk = (x - startX) * 2
+    carouselRef.current.scrollLeft = scrollLeft - walk
+  }
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % totalSlides)
+  }
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides)
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index)
+  }
+
+  // Auto-scroll carousel on slide change
+  useEffect(() => {
+    if (carouselRef.current) {
+      const scrollAmount = carouselRef.current.clientWidth * currentSlide
+      carouselRef.current.scrollTo({
+        left: scrollAmount,
+        behavior: 'smooth'
+      })
+    }
+  }, [currentSlide])
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="flex flex-col gap-6">
-      <div className="flex items-start justify-between gap-8">
-        {/* Selected Category Display - Left Side */}
-        <div className="flex-1 min-w-[200px]">
+    <>
+      {/* Desktop & Laptop View */}
+      <div className="hidden lg:flex flex-col gap-6 px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex items-center justify-between gap-8">
+          {/* Selected Category Display - Left Side */}
+          <div className="flex-1 min-w-[300px]">
+            <div className="flex items-center gap-2 text-gray-900">
+              <span className="text-base font-bold uppercase tracking-wide">{breadcrumbLabel}</span>
+              {isProductTypeSelected && (
+                <>
+                  <ChevronLeft size={16} className="text-gray-600" />
+                  <span className="text-base font-bold uppercase tracking-wide">{selectedLabel}</span>
+                </>
+              )}
+            </div>
+          </div>
+
+          {/* Categories Grid - Right Side */}
+          <div className="w-full grid grid-cols-4 gap-0">
+            {gridCategories.map((category) => (
+              <div
+                key={category.id}
+                className="flex flex-col items-center justify-center group"
+              >
+                <button
+                  onClick={() => onCategorySelect?.(category.id)}
+                  className={`flex flex-col items-center gap-0 p-6 transition-all w-full border ${
+                    selectedCategory === category.id
+                      ? "border-gray-900"
+                      : "border-gray-200 hover:border-gray-900"
+                  }`}
+                >
+                  <div className="w-50 h-50 flex items-center justify-center">
+                    <Image
+                      src={category.icon || "/placeholder.svg"}
+                      alt={category.label}
+                      width={350}
+                      height={550}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                </button>
+
+                <p className="text-xs font-semibold text-gray-900 text-center mt-2 w-full line-clamp-2 group-hover:text-red-400">
+                  {category.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Tablet View */}
+      <div className="hidden md:flex lg:hidden flex-col px-4 sm:px-6 py-6">
+        {/* Selected Category Row - Center */}
+        <div className="flex items-center justify-center mb-6">
           <div className="flex items-center gap-2 text-gray-900">
             <span className="text-base font-bold uppercase tracking-wide">{breadcrumbLabel}</span>
             {isProductTypeSelected && (
@@ -123,36 +346,163 @@ export function ProductCategoriesSidebar({
           </div>
         </div>
 
-        {/* Categories Grid - Right Side */}
-        <div className="flex-1 grid grid-cols-5 gap-4">
-          {gridCategories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => onCategorySelect?.(category.id)}
-              className={`flex flex-col items-center gap-2 p-3 transition-all border ${
-                selectedCategory === category.id
-                  ? "border-gray-900 bg-gray-50"
-                  : "border-gray-200 hover:border-gray-900"
-              }`}
-            >
-              <div className="w-10 h-10 flex items-center justify-center">
-                <Image
-                  src={category.icon || "/placeholder.svg"}
-                  alt={category.label}
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-contain"
-                />
+        {/* Categories Carousel - Center */}
+        <div className="relative overflow-hidden">
+          <div 
+            ref={carouselRef}
+            className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            style={{ cursor: isDragging ? 'grabbing' : 'grab', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {gridCategories.map((category) => (
+              <div
+                key={category.id}
+                className="flex-shrink-0 w-1/3 px-2 snap-center"
+              >
+                <div className="flex flex-col items-center justify-center group">
+                  <button
+                    onClick={() => onCategorySelect?.(category.id)}
+                    className={`flex flex-col items-center gap-0 p-4 transition-all w-full border ${
+                      selectedCategory === category.id
+                        ? "border-gray-900"
+                        : "border-gray-200 hover:border-gray-900"
+                    }`}
+                  >
+                    <div className="w-40 h-40 flex items-center justify-center">
+                      <Image
+                        src={category.icon || "/placeholder.svg"}
+                        alt={category.label}
+                        width={300}
+                        height={450}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </button>
+
+                  <p className="text-xs font-semibold text-gray-900 text-center mt-2 w-full line-clamp-2 group-hover:text-red-400">
+                    {category.label}
+                  </p>
+                </div>
               </div>
-              <p className="text-xs font-semibold text-gray-900 text-center line-clamp-2">{category.label}</p>
-            </button>
-          ))}
+            ))}
+          </div>
+          
+          {/* Carousel Navigation Dots */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {Array.from({ length: totalTabletSlides }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentSlide ? 'bg-gray-900' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile View */}
+      <div className="flex md:hidden flex-col px-4 py-6">
+        {/* Selected Category Row - Center */}
+        <div className="flex items-center justify-center mb-6">
+          <div className="flex items-center gap-2 text-gray-900">
+            <span className="text-sm font-bold uppercase tracking-wide">{breadcrumbLabel}</span>
+            {isProductTypeSelected && (
+              <>
+                <ChevronLeft size={14} className="text-gray-600" />
+                <span className="text-sm font-bold uppercase tracking-wide">{selectedLabel}</span>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Categories Carousel */}
+        <div className="relative overflow-hidden">
+          <div 
+            ref={carouselRef}
+            className="flex overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            style={{ cursor: isDragging ? 'grabbing' : 'grab', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {gridCategories.map((category) => (
+              <div
+                key={category.id}
+                className="flex-shrink-0 w-1/2 px-2 snap-center"
+              >
+                <div className="flex flex-col items-center justify-center group">
+                  <button
+                    onClick={() => onCategorySelect?.(category.id)}
+                    className={`flex flex-col items-center gap-0 p-3 transition-all w-full border ${
+                      selectedCategory === category.id
+                        ? "border-gray-900"
+                        : "border-gray-200 hover:border-gray-900"
+                    }`}
+                  >
+                    <div className="w-32 h-32 flex items-center justify-center">
+                      <Image
+                        src={category.icon || "/placeholder.svg"}
+                        alt={category.label}
+                        width={250}
+                        height={350}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                  </button>
+
+                  <p className="text-xs font-semibold text-gray-900 text-center mt-2 w-full line-clamp-2 group-hover:text-red-400">
+                    {category.label}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {/* Carousel Navigation Dots */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {Array.from({ length: totalSlides }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentSlide ? 'bg-gray-900' : 'bg-gray-300'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+          
+          {/* Navigation Arrows */}
+          {/* <button
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 p-2 rounded-full shadow-md hover:bg-white"
+            aria-label="Next slide"
+          >
+            <ChevronRight size={20} />
+          </button> */}
         </div>
       </div>
 
       {/* Full Width Border Below */}
-      {/* <div className="w-full border-b border-gray-200"></div> */}
-    </div>
-    </div>
+      <div className="w-full border-b border-gray-200"></div>
+    </>
   )
 }
