@@ -1451,16 +1451,16 @@ export function ProductCategoriesSidebar({
               </div>
             </div> */}
 
-            <div className="flex-1 min-w-[300px]">
+            <div className="flex-1 min-w-[400px]">
               <div className="flex items-center gap-2 text-gray-900">
-                <span className="text-lg font-bold uppercase tracking-wide">
+                <span className="text-2xl font-bold uppercase tracking-wide">
                   {breadcrumbLabel}
                 </span>
 
                 {isProductTypeSelected && selectedLabel && (
                   <>
                     <ChevronLeft size={16} className="text-gray-600" />
-                    <span className="text-lg font-bold uppercase tracking-wide">
+                    <span className="text-2xl font-bold uppercase tracking-wide">
                       {selectedLabel}
                     </span>
                   </>
