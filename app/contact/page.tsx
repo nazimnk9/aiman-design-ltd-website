@@ -52,7 +52,7 @@ export default function Contact() {
 
       {/* Contact Content - Added 3D background animation */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 overflow-hidden">
-        <Background3D type="home" />
+        {/* <Background3D type="home" /> */}
         <div className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Info */}

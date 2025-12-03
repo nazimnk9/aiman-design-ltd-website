@@ -753,7 +753,7 @@ export default function About() {
       <Navbar />
 
       <section className="relative bg-gradient-to-br from-primary to-accent text-white py-20 md:py-32 overflow-hidden">
-        <Background3D type="about" />
+        <Background3D type="contact" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeInUp">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-balance">About AIMAN</h1>

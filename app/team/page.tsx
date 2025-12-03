@@ -53,7 +53,7 @@ export default function Team() {
 
       {/* Hero Section - Added 3D background animation */}
       <section className="relative bg-gradient-to-br from-primary to-accent text-white py-16 md:py-24 overflow-hidden">
-        <Background3D type="team" />
+        <Background3D type="contact" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeInUp">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-balance">Our Team</h1>
@@ -64,7 +64,7 @@ export default function Team() {
 
       {/* Team Grid - Added 3D background animation */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 overflow-hidden">
-        <Background3D type="home" />
+        {/* <Background3D type="home" /> */}
         <div className="relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, i) => (

@@ -59,7 +59,7 @@ export default function Career() {
 
       {/* Hero Section - Added 3D background animation */}
       <section className="relative bg-gradient-to-br from-primary to-accent text-white py-16 md:py-24 overflow-hidden">
-        <Background3D type="career" />
+        <Background3D type="contact" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fadeInUp">
             <h1 className="text-4xl md:text-6xl font-bold mb-4 text-balance">Join Our Team</h1>
@@ -72,7 +72,7 @@ export default function Career() {
 
       {/* Intro Section - Added 3D background animation */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 overflow-hidden">
-        <Background3D type="products" />
+        {/* <Background3D type="products" /> */}
         <div className="relative z-10">
           <div className="text-center mb-12 animate-fadeInUp">
             <h2 className="text-3xl font-bold text-foreground mb-4">Why Join AIMAN?</h2>
@@ -98,7 +98,7 @@ export default function Career() {
 
       {/* Job Listings - Added 3D background animation */}
       <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 overflow-hidden">
-        <Background3D type="team" />
+        {/* <Background3D type="team" /> */}
         <div className="relative z-10">
           <h2 className="text-3xl font-bold text-foreground mb-12 text-center animate-fadeInUp">Open Positions</h2>
           <div className="space-y-4">
