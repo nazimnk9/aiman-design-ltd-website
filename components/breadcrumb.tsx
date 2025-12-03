@@ -465,7 +465,7 @@
 "use client"
 
 import Link from "next/link"
-import { ChevronLeft } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
 interface BreadcrumbItem {
   label: string
@@ -521,7 +521,7 @@ export function Breadcrumb({ items, selectedCategory, selectedLabel }: Breadcrum
             })()}
             {isProductTypeSelected && selectedLabel && (
               <>
-                <ChevronLeft size={16} className="text-gray-600" />
+                <ChevronRight size={16} className="text-gray-600" />
                 <span className="text-base font-bold uppercase tracking-wide">{selectedLabel}</span>
               </>
             )}

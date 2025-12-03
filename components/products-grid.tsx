@@ -287,11 +287,11 @@ export function ProductsGrid({ products, breadcrumbName = "men" }: ProductGridPr
               </button> */}
 
               {/* Discount Badge */}
-              {product.discount && (
+              {/* {product.discount && (
                 <div className="absolute top-4 right-4 bg-red-100 text-red-600 px-2 py-1 text-xs font-semibold rounded">
                   {`-${product.discount}%`}
                 </div>
-              )}
+              )} */}
 
               {/* Quick View Button - Show on hover */}
               {hoveredProductId === product.id && (
@@ -350,11 +350,11 @@ export function ProductsGrid({ products, breadcrumbName = "men" }: ProductGridPr
                   fill
                   className="object-fixed"
                 />
-                {selectedProduct.discount && (
+                {/* {selectedProduct.discount && (
                   <div className="absolute top-4 left-4 bg-red-100 text-red-600 px-2 py-1 text-xs font-semibold rounded">
                     {`-${selectedProduct.discount}%`}
                   </div>
-                )}
+                )} */}
 
                 {selectedProduct.images.length > 1 && (
                   <>

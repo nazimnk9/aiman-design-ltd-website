@@ -1459,7 +1459,7 @@ export function ProductCategoriesSidebar({
 
                 {isProductTypeSelected && selectedLabel && (
                   <>
-                    <ChevronLeft size={16} className="text-gray-600" />
+                    <ChevronRight size={16} className="text-gray-600" />
                     <span className="text-2xl font-bold uppercase tracking-wide">
                       {selectedLabel}
                     </span>
@@ -1604,7 +1604,7 @@ export function ProductCategoriesSidebar({
               <span className="text-base font-bold uppercase tracking-wide">{breadcrumbLabel}</span>
               {isProductTypeSelected && selectedLabel && (
                 <>
-                  <ChevronLeft size={16} className="text-gray-600" />
+                  <ChevronRight size={16} className="text-gray-600" />
                   <span className="text-base font-bold uppercase tracking-wide">{selectedLabel}</span>
                 </>
               )}
