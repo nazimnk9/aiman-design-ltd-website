@@ -489,16 +489,16 @@ export function Breadcrumb({ items, selectedCategory, selectedLabel }: Breadcrum
         <div className="hidden lg:flex items-center justify-center gap-3 text-sm text-gray-600">
           {items.map((item, index) => (
             <div key={index} className="flex items-center gap-3">
-              {index > 0 && <span className="text-gray-400 text-3xl">•</span>}
+              {index > 0 && <span className="text-gray-900 text-3xl">•</span>}
               {item.href ? (
-                <Link href={item.href} className="hover:text-gray-400 transition-colors uppercase font-medium text-sm">
+                <Link href={item.href} className="hover:text-red-400 transition-colors uppercase font-medium text-sm">
                   {item.label}
                 </Link>
               ) : item.onClick ? (
                 <button
                   onClick={item.onClick}
-                  className="hover:text-gray-900 transition-colors uppercase font-medium text-sm cursor-pointer text-gray-900 font-bold tracking-wide"
-                >
+                  className="hover:text-gray-900 transition-colors uppercase font-medium text-BASE cursor-pointer text-gray-900 font-bold tracking-wide"
+                style={{fontWeight: 800}}>
                   {item.label}
                 </button>
               ) : (
@@ -530,16 +530,16 @@ export function Breadcrumb({ items, selectedCategory, selectedLabel }: Breadcrum
           <div className="flex items-center gap-3 text-sm text-gray-600">
             {items.map((item, index) => (
               <div key={index} className="flex items-center gap-3">
-                {index > 0 && <span className="text-gray-400 text-3xl">•</span>}
+                {index > 0 && <span className="text-gray-900 text-3xl">•</span>}
                 {item.href ? (
-                  <Link href={item.href} className="hover:text-gray-900 transition-colors uppercase font-medium text-sm">
+                  <Link href={item.href} className="hover:text-red-400 transition-colors uppercase font-medium text-sm">
                     {item.label}
                   </Link>
                 ) : item.onClick ? (
                   <button
                     onClick={item.onClick}
-                    className="hover:text-gray-900 transition-colors uppercase font-medium text-sm cursor-pointer text-gray-900 font-bold"
-                  >
+                    className="hover:text-gray-900 transition-colors uppercase font-medium text-BASE cursor-pointer text-gray-900 font-bold"
+                  style={{fontWeight: 800}}>
                     {item.label}
                   </button>
                 ) : (
@@ -554,16 +554,16 @@ export function Breadcrumb({ items, selectedCategory, selectedLabel }: Breadcrum
         <div className="md:hidden flex items-center justify-center gap-3 text-sm text-gray-600">
           {items.map((item, index) => (
             <div key={index} className="flex items-center gap-3">
-              {index > 0 && <span className="text-gray-400 text-3xl">•</span>}
+              {index > 0 && <span className="text-gray-900 text-3xl">•</span>}
               {item.href ? (
-                <Link href={item.href} className="hover:text-gray-400 transition-colors uppercase font-medium text-sm">
+                <Link href={item.href} className="hover:text-red-400 transition-colors uppercase font-medium text-sm">
                   {item.label}
                 </Link>
               ) : item.onClick ? (
                 <button
                   onClick={item.onClick}
-                  className="hover:text-gray-900 transition-colors uppercase font-medium text-sm cursor-pointer text-gray-900 font-bold"
-                >
+                  className="hover:text-gray-900 transition-colors uppercase font-medium text-base cursor-pointer text-gray-900 font-bold"
+                style={{fontWeight: 800}}>
                   {item.label}
                 </button>
               ) : (

@@ -272,7 +272,7 @@ export function ProductsGrid({ products, breadcrumbName = "men" }: ProductGridPr
             {/* Product Card */}
             <div className="relative overflow-hidden p-0">
               {/* Product Image */}
-              <div className="relative h-200 w-full">
+              <div className="relative h-100 w-full">
                 <Image
                   src={hoveredProductId === product.id && product.images.length > 1 ? product.images[1] : product.image}
                   alt={product.name}
