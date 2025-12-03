@@ -286,6 +286,8 @@ export default function WomenProducts() {
     //   : []),
   ]
 
+  const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.label || ""
+
   const filteredProducts = selectedCategory
     ? womenProducts.filter((product) => product.category === selectedCategory)
     : womenProducts
@@ -295,22 +297,24 @@ export default function WomenProducts() {
       <HeaderTopBar />
       <Navbar />
 
-      <Breadcrumb items={breadcrumbItems} />
-
-      <section className="w-full">
-        
-
-        <ProductCategoriesSidebar
-          categories={categories}
-          selectedCategory={selectedCategory || ""}
-          breadcrumbLabel="WOMEN"
-          onCategorySelect={setSelectedCategory}
-        />
-
-        <div className="mt-8">
-          <ProductsGrid products={filteredProducts} breadcrumbName="women" />
-        </div>
-      </section>
+      <Breadcrumb 
+              items={breadcrumbItems} 
+              selectedCategory={selectedCategory || ""} 
+              selectedLabel={selectedLabel}
+            />
+      
+            <section className="w-full">
+              <ProductCategoriesSidebar
+                categories={categories}
+                selectedCategory={selectedCategory || ""}
+                breadcrumbLabel="WOMEN"
+                onCategorySelect={setSelectedCategory}
+              />
+      
+              <div className="mt-8">
+                <ProductsGrid products={filteredProducts} breadcrumbName="women" />
+              </div>
+            </section>
 
       <Footer />
     </div>

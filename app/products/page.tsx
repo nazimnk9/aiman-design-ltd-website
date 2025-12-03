@@ -642,13 +642,19 @@ export default function Products() {
     { label: "MEN" },
   ]
 
+  const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.label || ""
+
   return (
     <div className="min-h-screen bg-white">
       <HeaderTopBar />
       <Navbar />
 
       {/* Breadcrumb Navigation - Centered */}
-      <Breadcrumb items={breadcrumbItems} />
+      <Breadcrumb 
+        items={breadcrumbItems} 
+        selectedCategory={selectedCategory || ""} 
+        selectedLabel={selectedLabel}
+      />
 
       {/* Main Content */}
       <section className="w-full">

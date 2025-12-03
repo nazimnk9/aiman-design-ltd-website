@@ -283,6 +283,9 @@ export default function KidsProducts() {
     //   : []),
   ]
 
+
+  const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.label || ""
+
   const filteredProducts = selectedCategory
     ? kidsProducts.filter((product) => product.category === selectedCategory)
     : kidsProducts
@@ -292,24 +295,24 @@ export default function KidsProducts() {
       <HeaderTopBar />
       <Navbar />
 
-      <Breadcrumb items={breadcrumbItems} />
-
-      <section className="w-full">
-       
-
-        <ProductCategoriesSidebar
-          categories={categories}
-          selectedCategory={selectedCategory || ""}
-          breadcrumbLabel="KIDS"
-          onCategorySelect={setSelectedCategory}
-        />
-        
-
-        <div className="mt-8">
-          <ProductsGrid products={filteredProducts} breadcrumbName="kids" />
-        </div>
-      </section>
-
+      <Breadcrumb 
+              items={breadcrumbItems} 
+              selectedCategory={selectedCategory || ""} 
+              selectedLabel={selectedLabel}
+            />
+      
+            <section className="w-full">
+              <ProductCategoriesSidebar
+                categories={categories}
+                selectedCategory={selectedCategory || ""}
+                breadcrumbLabel="kids"
+                onCategorySelect={setSelectedCategory}
+              />
+      
+              <div className="mt-8">
+                <ProductsGrid products={filteredProducts} breadcrumbName="kids" />
+              </div>
+            </section>
       <Footer />
     </div>
   )
