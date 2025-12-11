@@ -465,13 +465,13 @@ const heroSlides = {
   left: [
     {
       // image: "/remium-garments-fashion-showcase.jpg",
-      image: "/1_tudio-ZbDEws8Jo30-unsplash.webp",
+      image: "/rsz_bulk_prod.jpg",
       title: "Bulk Production",
       description: "Every piece tells a story of dedication and artistry",
     },
     {
       // image: "/premium-garments-fashion-showcase.jpg",
-      image: "/19697_1.webp",
+      image: "/manufacturing.jpg",
       title: "Manufacturing",
       description: "Discover premium quality garments crafted with excellence",
     }
@@ -481,13 +481,13 @@ const heroSlides = {
   right: [
     {
       // image: "/luxury-apparel-textile-design.jpg",
-      image: "/1_miscellaneous-items-being-sold-yard-sale.webp",
+      image: "/rsz_sourcing.jpg",
       title: "Sourcing",
       description: "Every piece tells a story of dedication and artistry",
     },
     {
       // image: "/trendy-modern-clothing-collection.jpg",
-      image: "/2_1nellie-adamyan-J1YzvR1RWvo-unsplash.webp",
+      image: "/rsz_design.jpg",
       title: "Design",
       description: "Explore our exclusive collection of contemporary designs",
     }

@@ -1629,7 +1629,7 @@ export function CategoriesSection() {
         {/* For Women Section - Left Side */}
         <CategorySlide
           title="QUALITY"
-          image="/women-fashion-model-wearing-white-tank-top-and-jea.jpg"
+          image="/rsz_design_1.jpg"
           categories={womenCategories}
           side="left"
         />

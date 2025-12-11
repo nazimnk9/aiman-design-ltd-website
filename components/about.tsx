@@ -55,7 +55,7 @@ export function AboutSection() {
             <div className="rounded-lg p-1 md:p-6 flex items-center justify-center min-h-24 md:min-h-140 h-full mr-10 md:mr-0 md:pr-0 mt-0 md:mt-5 lg:mt-10 xl:mt-10">
               <div className="relative w-full h-full max-w-sm md:max-w-xl">
                 <img
-                  src="/about.png"
+                  src="/rsz_20251022_172100.jpg"
                   alt="Organic Textiles - Professional model"
                   className="w-full h-[25rem] md:h-full object-cover overflow-visible"
                 />
