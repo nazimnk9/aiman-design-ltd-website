@@ -1501,7 +1501,7 @@ export function ProductCategoriesSidebar({
             </div>
           </div>
         </div>
-        <div className="w-full border-b border-gray-200"></div>
+        <div className="w-full border-b border-gray-20"></div>
       </div>
 
       {/* Tablet View */}
