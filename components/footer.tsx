@@ -584,7 +584,7 @@ export function Footer() {
             <div className="text-center sm:text-left md:col-span-1">
               <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Categories</h4>
               <ul className="space-y-3">
-                {["For Men", "For Woman", "Accessories", "Other"].map((item) => (
+                {["Circular knit", "Flat knit", "Woven"].map((item) => (
                   <li key={item}>
                     <Link href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
                       {item}
@@ -595,41 +595,11 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Account */}
-            <div className="text-center sm:text-left md:col-span-1">
-              <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Account</h4>
-              <ul className="space-y-3">
-                {["Wishlist", "Compare", "Subscribe", "Log In"].map((item) => (
-                  <li key={item}>
-                    <Link href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
-                      {item}
-                      <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Quick Links */}
-            <div className="text-center sm:text-left md:col-span-1">
-              <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Quick Links</h4>
-              <ul className="space-y-3">
-                {["Shipping & Returns", "Privacy Policy", "Terms & Conditions", "Vacancies"].map((item) => (
-                  <li key={item}>
-                    <Link href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
-                      {item}
-                      <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
             {/* Company */}
             <div className="text-center sm:text-left md:col-span-1">
-              <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Company</h4>
+              <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Explore</h4>
               <ul className="space-y-3">
-                {["About us", "Blog", "FAQs"].map((item) => (
+                {["About us", "Products", "Team", "Career", "Contact"].map((item) => (
                   <li key={item}>
                     <Link href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
                       {item}
@@ -638,36 +608,6 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Support - Full width on mobile/tablet, normal on desktop */}
-            <div className="col-span-1 sm:col-span-2 lg:col-span-1 md:col-span-1">
-              <div className="flex items-center gap-3 justify-start sm:justify-center mb-8 min-w-70">
-                <MessageSquare
-                    className="text-gray-600 hover:text-green-600 transition-colors duration-300"
-                    size={50}
-                />
-                <div className="flex flex-col items-start text-start">
-                  <h6 className="font-bold text-black uppercase whitespace-nowrap" style={{ fontSize: "15.5px", ...bebasFont }}>
-                    We Offer 24/7 Dedicated Support
-                  </h6>
-                  <p className="text-gray-500 text-xs mt-2">If you need support send us a message</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 justify-start sm:justify-center min-w-56">
-                <Headphones
-                  className="text-gray-600 hover:text-green-600 transition-colors duration-300 flex-shrink-0"
-                  size={50}
-                />
-                <div className="text-center sm:text-left">
-                  <p className="text-xs text-gray-500">Got Question? Call Us 24/7?</p>
-                  <p className="text-black hover:text-green-600 transition-colors duration-300 font-bold mt-1 relative group" style={{fontSize: "16px"}}>
-                    (012) 345 000 789
-                    <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -684,29 +624,12 @@ export function Footer() {
 
             {/* Store Location and Newsletter - Side by side on tablet and desktop */}
             <div className="col-span-1 md:col-span-1 lg:col-span-2 items-center justify-center">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-0">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-0">
                 {/* Store Location */}
                 <div className="text-center md:text-start md:w-60">
-                  <h4 className="font-bold text-black text-sm uppercase tracking-wider mb-4">Store Location</h4>
-                  <p className="text-gray-600 text-sm mb-4">Box 565, Charlestown, Nevis, West Indies,Caribbean</p>
-                  <div className="flex justify-center md:justify-start gap-4 mb-6">
-                    {[
-                      { icon: Facebook, label: "Facebook" },
-                      { icon: Twitter, label: "Twitter" },
-                      { icon: Instagram, label: "Instagram" },
-                      { icon: Google, label: "Google+" },
-                    ].map(({ icon: Icon, label }) => (
-                      <Link
-                        key={label}
-                        href="#"
-                        className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group"
-                        aria-label={label}
-                      >
-                        <Icon size={18} />
-                        {/* <span className="absolute bottom-0 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span> */}
-                      </Link>
-                    ))}
-                  </div>
+                  <h4 className="font-bold text-black text-sm uppercase tracking-wider mb-4">Dhaka Office</h4>
+                  <p className="text-gray-600 text-sm mb-4">House # 470, Road # 8,<br />Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh</p>
+                  
                   <p className="text-gray-500 text-xs">
                     Email: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
                       contact@example.com
@@ -715,28 +638,17 @@ export function Footer() {
                   </p>
                 </div>
 
-                {/* Newsletter Signup */}
-                <div className="text-center md:text-left lg:text-left mt-8">
-                  <h4 className="font-bold text-black text-sm uppercase tracking-wider mb-6">Sign Up For Newsletter</h4>
-                  <form
-                    onSubmit={handleSubscribe}
-                    className="flex flex-row items-center gap-0 justify-center md:justify-start lg:justify-end min-w-0 lg:min-w-87 xl:min-w-112"
-                  >
-                    <input
-                      type="email"
-                      placeholder="Enter email address..."
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="flex-1 bg-transparent border-b border-gray-500 px-0 py-2 text-black placeholder-gray-500 focus:outline-none focus:border-green-600 focus:border-b-2 transition-colors duration-300 text-sm"
-                    />
-                    <button
-                      type="submit"
-                      className="border border-gray-400 text-black hover:bg-green-600 hover:text-white hover:border-green-600 px-4 md:px-3 lg:px-6 py-4 uppercase font-bold text-sm transition-all duration-300 whitespace-nowrap ml-4 flex flex-row justify-center items-center"
-                    >
-                      Subscribe
-                      <span className="ml-4 mb-1">→</span>
-                    </button>
-                  </form>
+                {/* Store Location */}
+                <div className="text-center md:text-start md:w-60">
+                  <h4 className="font-bold text-black text-sm uppercase tracking-wider mb-4">London Office</h4>
+                  <p className="text-gray-600 text-sm mb-4">13 Elm parade Main road, <br />Sidcup Kent, UK Da14 6nf .</p>
+                  
+                  <p className="text-gray-500 text-xs">
+                    Email: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
+                      contact@example.com
+                      <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -745,35 +657,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Section - Copyright and Payment Methods */}
-      <div className="bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-gray-600 text-xs sm:text-sm text-center sm:text-left">
-              Copyright © 2025 <span className="text-green-600 font-bold relative group hover:text-green-600">
-                Styliz
-                <span className="absolute bottom-0 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
-              </span>. All Rights Reserved.
-            </p>
-            {/* <div className="flex gap-2 sm:gap-3 flex-wrap justify-center md:justify-end">
-              {[
-                { name: "Visa", color: "bg-blue-600" },
-                { name: "Mastercard", color: "bg-red-600" },
-                { name: "American Express", color: "bg-blue-400" },
-                { name: "PayPal", color: "bg-blue-700" },
-                { name: "Discover", color: "bg-orange-500" },
-                { name: "COD", color: "bg-gray-600" },
-              ].map(({ name, color }) => (
-                <div
-                  key={name}
-                  className={`${color} rounded px-3 py-1 text-white text-xs font-semibold flex items-center justify-center h-8 w-12 hover:underline`}
-                >
-                  {name === "COD" ? "COD" : name.split(" ")[0]}
-                </div>
-              ))}
-            </div> */}
-          </div>
-        </div>
-      </div>
+
     </footer>
   )
 }

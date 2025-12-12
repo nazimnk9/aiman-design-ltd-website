@@ -50,7 +50,8 @@ export function AboutSection() {
     <section className="relative bg-white mt-12 md:mt-0 py-8 md:py-20 lg:py-10 ml-20 md:ml-26 lg:ml-26 xl:ml-18 2xl:ml-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-row md:flex-row lg:flex-row xl:flex-row items-stretch lg:gap-0 relative z-30">
-          {/* Left side - Image container with overlap effect */}
+          
+          {/* Left side - Image container */}
           <div className="w-full md:w-1/2 animate-fadeInLeft relative">
             <div className="rounded-lg p-1 md:p-6 flex items-center justify-center min-h-24 md:min-h-140 h-full mr-10 md:mr-0 md:pr-0 mt-0 md:mt-5 lg:mt-10 xl:mt-10">
               <div className="relative w-full h-full max-w-sm md:max-w-xl">
@@ -63,32 +64,22 @@ export function AboutSection() {
             </div>
           </div>
 
-          {/* Right side - Content that overlaps the image */}
-          <div className="w-full md:w-1/2 -ml-14 md:-ml-14 lg:-ml-28 mb-0 md:-mb-2 lg:mb-20 mt-0 md:mt-6 lg:mt-0 flex items-center animate-fadeInUp relative">
+          {/* Right side text section */}
+          <div className="w-full bg-[#005800] md:w-1/2 -ml-14 md:-ml-14 lg:-ml-28 mb-0 md:-mb-2 lg:mb-20 mt-0 md:mt-6 lg:mt-0 flex items-center animate-fadeInUp relative">
             <div className="space-y-6 md:space-y-6 p-1 md:p-2 lg:p-10 w-full">
               <div>
-                <h1 className="text-xl md:text-5xl lg:text-4xl font-bold text-foreground mb-1 md:mb-2 text-balance">
+                <h1 className="inline-block  text-white px-3 py-1 text-xl md:text-5xl lg:text-4xl font-bold mb-1 md:mb-2 text-balance">
                   ABOUT US
                 </h1>
-                {/* <p className="text-xs md:text-sm tracking-widest text-muted-foreground uppercase mt-0 md:mt-2">
-                  FOR A BETTER FUTURE
-                </p> */}
               </div>
 
               <div className="prose prose-lg max-w-none">
-                <p className="text-xs md:text-lg text-muted-foreground leading-relaxed mb-1 md:mb-4">
-                  Aiman Design Ltd. is one stop solution provider and garment manufacturer in Bangladesh. Since 2016 we have grown from our initial startup focused on sourcing from Bangladesh  and managing complex supply chains for importers , brands and retailers worldwide.
+                <p className="inline-block text-white px-3 py-1 text-xs md:text-lg leading-relaxed mb-1 md:mb-4">
+                  Aiman Design Ltd. is a one-stop garment solution and manufacturer in Bangladesh, established in 2016. We evolved from a sourcing-focused startup into a partner managing complex supply chains for global importers, brands, and retailers. Strong in woven (including denim and non-denim), padded jackets and pants, workwear, circular knits, and flat knits, we operate through wide production facilities built on long-term partnerships with manufacturers and fabric suppliers across Asia.
                 </p>
-                <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">
-                  Aiman Design Ltd is an apparel sourcing and manufacturing well reputed platform which is  strong  in areas of  Woven including Denim, Non-denim , Padded Jackets and Pants, Work wear Products, Circular Knit, and Flat Knits. ADL have wide production facilities, based on long term partnerships with manufacturers and fabric suppliers in Asia.
-                </p>
-                {/* <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">
-                  Over the years  we  had been developing networks and building long-term and meaningful relationships with our stakeholders, based on continuous changes, developments, innovations and sustainability  to drive our business.
-                </p>
-                <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">
-                  We constantly finds result oriented solutions  for easy working to deliver value to our customers, suppliers, Society and for Green Environment.
-                </p> */}
+
               </div>
+
             </div>
           </div>
         </div>

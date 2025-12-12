@@ -98,7 +98,7 @@ export function HeaderTopBar() {
         <div className="flex items-center gap-2">
           <Mail size={16} style={{ color: "#dde0e7ff" }} />
           <a
-            href="mailto:hello@aiman.com"
+            href="/contact"
             className="text-xs font-medium"
             style={{
               color: "#FFF",
@@ -120,7 +120,7 @@ export function HeaderTopBar() {
               textDecoration: "none",
             }}
           >
-            +1 (234) 567-890
+            +447711048902
           </a>
         </div>
 
@@ -133,7 +133,7 @@ export function HeaderTopBar() {
               color: "#E5E7EB",
             }}
           >
-            123 Fashion St, NYC
+            13 Elm parade Main road, Sidcup Kent, UK
           </span>
         </div>
       </div>

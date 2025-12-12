@@ -147,7 +147,7 @@ export function IndustryStatsSection() {
         },
         {
             number: "3",
-            label: "Lines of Product: \nCircular knit,flat knit & Woven",
+            label: "Lines of Product: \nCircular knit\nFlat knit\nWoven",
         },
         {
             number: "1",
@@ -155,7 +155,7 @@ export function IndustryStatsSection() {
         },
         {
             number: "2",
-            label: "ADL countries of office\nBANGLADESH & LONDON",
+            label: "Offices\nBangladesh & United Kingdom",
         },
     ]
 
@@ -181,7 +181,7 @@ export function IndustryStatsSection() {
                     <div
                         className={`w-full lg:w-auto transition-all duration-1000 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-20"}`}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight text-balance text-center lg:text-left">
+                        <h2 className="text-4xl bg-green-700  md:text-7xl font-bold text-white mb-4 leading-tight text-balance text-center lg:text-left ">
                             <span className="block lg:hidden">We are in good shape</span>
                             {/* <span className="hidden lg:block">
                 Our
