@@ -608,18 +608,18 @@ interface Category {
 
 const categories: Category[] = [
   {
-    id: "women",
-    name: "Women",
+    id: "woven",
+    name: "Woven",
     image: "/women.jpg",
   },
   {
-    id: "men",
-    name: "Men",
+    id: "flat_knit",
+    name: "Flat Knit",
     image: "/men.jpg",
   },
   {
-    id: "kids",
-    name: "Kids",
+    id: "circular_knit",
+    name: "Circular Knit",
     image: "/kids.jpg",
   },
 ]

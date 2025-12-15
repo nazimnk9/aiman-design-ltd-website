@@ -72,8 +72,14 @@ export default function Contact() {
                 },
                 {
                   icon: MapPin,
-                  title: "Address",
-                  value: "123 Fashion St, NYC",
+                  title: "Dhaka Office",
+                  value: "House # 470, Road # 8, Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh",
+                  desc: "Visit us in person",
+                },
+                {
+                  icon: MapPin,
+                  title: "London Office",
+                  value: "13 Elm parade Main road, Sidcup Kent, UK Da14 6nf .",
                   desc: "Visit us in person",
                 },
               ].map((item, i) => {

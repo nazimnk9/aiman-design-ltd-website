@@ -635,7 +635,7 @@ export default function Home() {
             {[
               { label: "Email", value: "hello@aiman.com" },
               { label: "Phone", value: "+1 (555) 123-4567" },
-              { label: "Address", value: "123 Fashion St, NYC" },
+              { label: "Address", value: <span className="text-sm block leading-relaxed mt-1"><strong className="text-white block">Dhaka Office:</strong> House # 470, Road # 8, Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh<br /><strong className="text-white block mt-2">London Office:</strong> 13 Elm parade Main road, Sidcup Kent, UK Da14 6nf .</span> },
             ].map((item, i) => (
               <div
                 key={i}

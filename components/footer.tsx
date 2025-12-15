@@ -29,10 +29,14 @@ export function Footer() {
             <div className="text-center sm:text-left md:col-span-1">
               <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Categories</h4>
               <ul className="space-y-3">
-                {["Circular knit", "Flat knit", "Woven"].map((item) => (
-                  <li key={item}>
-                    <Link href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
-                      {item}
+                {[
+                  { name: "Circular knit", href: "/products/circular_knit" },
+                  { name: "Flat knit", href: "/products/flat_knit" },
+                  { name: "Woven", href: "/products/woven" }
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
+                      {item.name}
                       <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full h-0.5 bg-green-600"></span>
                     </Link>
                   </li>
@@ -44,10 +48,16 @@ export function Footer() {
             <div className="text-center sm:text-left md:col-span-1">
               <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Explore</h4>
               <ul className="space-y-3">
-                {["About us", "Products", "Team", "Career", "Contact"].map((item) => (
-                  <li key={item}>
-                    <Link href="#" className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
-                      {item}
+                {[
+                  { name: "About us", href: "/about" },
+                  { name: "Products", href: "/products/circular_knit" },
+                  { name: "Team", href: "/team" },
+                  { name: "Career", href: "/career" },
+                  { name: "Contact", href: "/contact" }
+                ].map((item) => (
+                  <li key={item.name}>
+                    <Link href={item.href} className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-sm relative group">
+                      {item.name}
                       <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
                     </Link>
                   </li>
