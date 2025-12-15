@@ -1,8 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import { ChevronRight } from "lucide-react"
-import { useState, useRef, useEffect } from "react"
+import { ChevronRight, Loader2 } from "lucide-react"
+import { useState, useRef, useEffect, useCallback } from "react"
 
 interface Category {
   id: string
@@ -16,6 +16,7 @@ interface ProductCategoriesSidebarProps {
   selectedCategory: string
   breadcrumbLabel: string
   onCategorySelect?: (categoryId: string) => void
+  isLoading?: boolean
 }
 
 export function ProductCategoriesSidebar({
@@ -23,6 +24,7 @@ export function ProductCategoriesSidebar({
   selectedCategory,
   breadcrumbLabel,
   onCategorySelect,
+  isLoading = false,
 }: ProductCategoriesSidebarProps) {
   const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.label || ""
   const isProductTypeSelected = !["CIRCULAR_KNIT", "FLAT_KNIT", "WOVEN"].includes(selectedCategory)
@@ -33,9 +35,20 @@ export function ProductCategoriesSidebar({
   // Carousel state
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
-  const [dragStart, setDragStart] = useState(0)
   const [dragOffset, setDragOffset] = useState(0)
-  const carouselRef = useRef<HTMLDivElement>(null)
+
+  // IMPORTANT:
+  // This component renders 3 carousels (desktop/tablet/mobile) at the same time.
+  // Using a single `ref` for all of them makes width calculations unreliable because
+  // the ref ends up pointing to the last rendered (often hidden) carousel.
+  // We instead store the *active* carousel element at drag-start.
+  const activeCarouselElRef = useRef<HTMLDivElement | null>(null)
+
+  // Drag tracking refs (refs avoid stale state during fast drags and help smoothness)
+  const dragStartXRef = useRef(0)
+  const dragOffsetRef = useRef(0)
+  const rafRef = useRef<number | null>(null)
+  const currentSlideRef = useRef(0)
 
   // Ref to track if a drag actually happened (to prevent click)
   const hasDraggedRef = useRef(false)
@@ -62,52 +75,120 @@ export function ProductCategoriesSidebar({
   // Helper limits
   const getMaxSlide = (viewCount: number) => Math.max(0, gridCategories.length - viewCount)
 
+  useEffect(() => {
+    currentSlideRef.current = currentSlide
+  }, [currentSlide])
+
+  const scheduleDragOffsetUpdate = () => {
+    if (rafRef.current != null) return
+    rafRef.current = window.requestAnimationFrame(() => {
+      rafRef.current = null
+      setDragOffset(dragOffsetRef.current)
+    })
+  }
+
+  const getContainerWidth = () => activeCarouselElRef.current?.offsetWidth || 0
+
   const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
+    // Prevent image ghost-drag / text selection
+    if ("preventDefault" in e) e.preventDefault()
+
     setIsDragging(true)
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
-    setDragStart(clientX)
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX
+    dragStartXRef.current = clientX
+    dragOffsetRef.current = 0
+    setDragOffset(0)
     hasDraggedRef.current = false
+
+    // Use the exact carousel the user started dragging on (desktop/tablet/mobile)
+    activeCarouselElRef.current = e.currentTarget as HTMLDivElement
   }
 
-  const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
+  const handleDragMove = useCallback((e: React.MouseEvent | React.TouchEvent | TouchEvent | MouseEvent) => {
     if (!isDragging) return
-    const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX
-    const offset = clientX - dragStart
-    setDragOffset(offset)
 
-    // If moved significantly, mark as dragged
-    if (Math.abs(offset) > DRAG_THRESHOLD) {
-      hasDraggedRef.current = true
+    // On touch, stop the page from horizontally scrolling while dragging the carousel
+    if ("cancelable" in e && (e as any).cancelable) {
+      // @ts-ignore
+      e.preventDefault?.()
     }
-  }
 
-  const handleDragEnd = () => {
-    if (!isDragging) return
-    setIsDragging(false)
+    const clientX = "touches" in (e as any)
+      ? (e as any).touches[0]?.clientX
+      : (e as any).clientX
+
+    if (typeof clientX !== "number") return
+
+    const rawOffset = clientX - dragStartXRef.current
 
     const { view } = getViewConfig()
     const maxSlide = getMaxSlide(view)
 
-    let nextSlide = currentSlide
+    const containerWidth = getContainerWidth()
+    const itemWidth = view > 0 ? containerWidth / view : 0
 
-    // Use the same low threshold to ensure any valid drag changes the slide
-    // This prevents "showing current slide again" after a drag attempt
-    if (dragOffset > DRAG_THRESHOLD) {
-      // Dragged Right (Positive) -> Move to Previous Left items
-      nextSlide = Math.max(0, currentSlide - 1)
-    } else if (dragOffset < -DRAG_THRESHOLD) {
-      // Dragged Left (Negative) -> Move to Next Right items
-      nextSlide = Math.min(maxSlide, currentSlide + 1)
+    // If we can't measure, just do nothing (prevents NaNs and weird jumps)
+    if (!itemWidth || !isFinite(itemWidth)) return
+
+    // Clamp using the *effective* slide, so resizing can't create invalid bounds
+    const effectiveSlide = Math.min(currentSlideRef.current, maxSlide)
+
+    // Bounds in px for current slide
+    const maxRightDrag = effectiveSlide * itemWidth
+    const maxLeftDrag = -((maxSlide - effectiveSlide) * itemWidth)
+
+    // Hard clamp: do not allow dragging past the ends
+    const nextOffset = Math.max(maxLeftDrag, Math.min(rawOffset, maxRightDrag))
+
+    dragOffsetRef.current = nextOffset
+    scheduleDragOffsetUpdate()
+
+    if (Math.abs(rawOffset) > DRAG_THRESHOLD) {
+      hasDraggedRef.current = true
+    }
+  }, [isDragging, DRAG_THRESHOLD, gridCategories.length])
+
+  const handleDragEnd = useCallback(() => {
+    if (!isDragging) return
+
+    setIsDragging(false)
+
+    if (rafRef.current != null) {
+      window.cancelAnimationFrame(rafRef.current)
+      rafRef.current = null
+    }
+
+    const { view } = getViewConfig()
+    const maxSlide = getMaxSlide(view)
+
+    const containerWidth = getContainerWidth()
+    const itemWidth = view > 0 ? containerWidth / view : 0
+
+    const effectiveSlide = Math.min(currentSlideRef.current, maxSlide)
+    const finalOffset = dragOffsetRef.current
+
+    let nextSlide = effectiveSlide
+
+    if (itemWidth && isFinite(itemWidth) && Math.abs(finalOffset) > DRAG_THRESHOLD) {
+      // Move multiple items if the user dragged far enough (feels more natural)
+      const moved = Math.max(1, Math.round(Math.abs(finalOffset) / itemWidth))
+
+      if (finalOffset > 0) {
+        nextSlide = Math.max(0, effectiveSlide - moved)
+      } else {
+        nextSlide = Math.min(maxSlide, effectiveSlide + moved)
+      }
     }
 
     setCurrentSlide(nextSlide)
+    dragOffsetRef.current = 0
     setDragOffset(0)
 
     // Reset drag flag
     setTimeout(() => {
       hasDraggedRef.current = false
     }, 100)
-  }
+  }, [isDragging, DRAG_THRESHOLD, gridCategories.length])
 
   const handleItemClick = (categoryId: string) => {
     // If we dragged, do NOT select. Strictly separates Drag from Click.
@@ -161,20 +242,43 @@ export function ProductCategoriesSidebar({
   }
 
 
+  // Keep currentSlide valid on resize (prevents invalid bounds / edge-breaks)
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => handleDragMove(e as any)
+    if (typeof window === "undefined") return
+
+    const clamp = () => {
+      const { view } = getViewConfig()
+      const maxSlide = getMaxSlide(view)
+      setCurrentSlide((prev) => Math.min(prev, maxSlide))
+    }
+
+    clamp()
+    window.addEventListener("resize", clamp)
+    return () => window.removeEventListener("resize", clamp)
+  }, [gridCategories.length])
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => handleDragMove(e)
     const handleMouseUp = () => handleDragEnd()
+    const handleTouchMove = (e: TouchEvent) => handleDragMove(e)
+    const handleTouchEnd = () => handleDragEnd()
 
     if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseup', handleMouseUp)
+      document.addEventListener("mousemove", handleMouseMove)
+      document.addEventListener("mouseup", handleMouseUp)
+      document.addEventListener("touchmove", handleTouchMove, { passive: false })
+      document.addEventListener("touchend", handleTouchEnd)
+      document.addEventListener("touchcancel", handleTouchEnd)
     }
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove)
-      document.removeEventListener('mouseup', handleMouseUp)
+      document.removeEventListener("mousemove", handleMouseMove)
+      document.removeEventListener("mouseup", handleMouseUp)
+      document.removeEventListener("touchmove", handleTouchMove as any)
+      document.removeEventListener("touchend", handleTouchEnd)
+      document.removeEventListener("touchcancel", handleTouchEnd)
     }
-  }, [isDragging, dragStart])
+  }, [isDragging, handleDragMove, handleDragEnd])
 
 
   return (
@@ -183,7 +287,7 @@ export function ProductCategoriesSidebar({
       <div className="hidden lg:block">
         <div className="flex flex-col gap-6 px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex items-center justify-between gap-8">
-            <div className="flex-1 min-w-[400px]">
+            <div className="flex-1 min-w-[470px]">
               <div className="flex items-center gap-2 text-gray-900">
                 <span className="text-2xl font-bold uppercase tracking-wide">
                   {breadcrumbLabel}
@@ -191,7 +295,7 @@ export function ProductCategoriesSidebar({
 
                 {isProductTypeSelected && selectedLabel && (
                   <>
-                    <ChevronRight size={16} className="text-gray-600" />
+                    <ChevronRight size={20} className="text-gray-600" />
                     <span className="text-2xl font-bold uppercase tracking-wide">
                       {selectedLabel}
                     </span>
@@ -205,19 +309,17 @@ export function ProductCategoriesSidebar({
             <div className="w-[calc(100%-400px)] flex flex-col items-center">
               <div className="relative w-full">
                 <div
-                  ref={carouselRef}
                   className="overflow-hidden select-none"
                   onMouseDown={handleDragStart}
                   onTouchStart={handleDragStart}
-                  onTouchMove={handleDragMove}
-                  onTouchEnd={handleDragEnd}
-                  style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+                  style={{ cursor: isDragging ? 'grabbing' : 'grab', touchAction: 'pan-y' }}
                 >
                   <div
-                    className="flex transition-transform duration-300 ease-in-out"
+                    className={`flex ${isDragging ? "transition-none" : "transition-transform duration-300 ease-in-out"}`}
                     style={{
                       transform: getTransform(slidesPerView.desktop),
-                      width: getTrackWidth(slidesPerView.desktop)
+                      width: getTrackWidth(slidesPerView.desktop),
+                      willChange: "transform",
                     }}
                   >
                     {gridCategories.map((category) => (
@@ -282,19 +384,17 @@ export function ProductCategoriesSidebar({
           <div className="w-full flex flex-col items-center">
             <div className="relative w-full max-w-4xl">
               <div
-                ref={carouselRef}
                 className="overflow-hidden select-none"
                 onMouseDown={handleDragStart}
                 onTouchStart={handleDragStart}
-                onTouchMove={handleDragMove}
-                onTouchEnd={handleDragEnd}
-                style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+                style={{ cursor: isDragging ? 'grabbing' : 'grab', touchAction: 'pan-y' }}
               >
                 <div
-                  className="flex transition-transform duration-300 ease-in-out"
+                  className={`flex ${isDragging ? "transition-none" : "transition-transform duration-300 ease-in-out"}`}
                   style={{
                     transform: getTransform(slidesPerView.tablet),
-                    width: getTrackWidth(slidesPerView.tablet)
+                    width: getTrackWidth(slidesPerView.tablet),
+                    willChange: "transform",
                   }}
                 >
                   {gridCategories.map((category) => (
@@ -371,19 +471,17 @@ export function ProductCategoriesSidebar({
           <div className="w-full flex flex-col items-center">
             <div className="relative w-full">
               <div
-                ref={carouselRef}
                 className="overflow-hidden select-none"
                 onMouseDown={handleDragStart}
                 onTouchStart={handleDragStart}
-                onTouchMove={handleDragMove}
-                onTouchEnd={handleDragEnd}
-                style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+                style={{ cursor: isDragging ? 'grabbing' : 'grab', touchAction: 'pan-y' }}
               >
                 <div
-                  className="flex transition-transform duration-300 ease-in-out"
+                  className={`flex ${isDragging ? "transition-none" : "transition-transform duration-300 ease-in-out"}`}
                   style={{
                     transform: getTransform(slidesPerView.mobile),
-                    width: getTrackWidth(slidesPerView.mobile)
+                    width: getTrackWidth(slidesPerView.mobile),
+                    willChange: "transform",
                   }}
                 >
                   {gridCategories.map((category) => (

@@ -28,14 +28,14 @@ interface Product {
 
 const categories = [
   { id: "MENS", label: "MENS", icon: "/images/MENS.webp", href: "#" },
-  { id: "JR_LADIES", label: "JR_LADIES", icon: "/images/JR_LADIES.webp", href: "#" },
+  { id: "JR_LADIES", label: "JUNIOR LADIES", icon: "/images/JR_LADIES.webp", href: "#" },
   { id: "WOMEN", label: "WOMEN", icon: "/images/WOMEN.webp", href: "#" },
-  { id: "JUNIOR_BOYS", label: "JUNIOR_BOYS", icon: "/images/JUNIOR_BOYS.webp", href: "#" },
-  { id: "SENIOR_BOYS", label: "SENIOR_BOYS", icon: "/images/SENIOR_BOYS.webp", href: "#" },
-  { id: "TODDLER_BOYS", label: "TODDLER_BOYS", icon: "/images/TODDLER_BOYS.webp", href: "#" },
-  { id: "JUNIOR_GIRLS", label: "JUNIOR_GIRLS", icon: "/images/JUNIOR_GIRLS.webp", href: "#" },
-  { id: "SENIOR_GIRLS", label: "SENIOR_GIRLS", icon: "/images/SENIOR_GIRLS.webp", href: "#" },
-  { id: "TODDLER_GIRLS", label: "TODDLER_GIRLS", icon: "/images/TODDLER_GIRLS.webp", href: "#" },
+  { id: "JUNIOR_BOYS", label: "JUNIOR BOYS", icon: "/images/JUNIOR_BOYS.webp", href: "#" },
+  { id: "SENIOR_BOYS", label: "SENIOR BOYS", icon: "/images/SENIOR_BOYS.webp", href: "#" },
+  { id: "TODDLER_BOYS", label: "TODDLER BOYS", icon: "/images/TODDLER_BOYS.webp", href: "#" },
+  { id: "JUNIOR_GIRLS", label: "JUNIOR GIRLS", icon: "/images/JUNIOR_GIRLS.webp", href: "#" },
+  { id: "SENIOR_GIRLS", label: "SENIOR GIRLS", icon: "/images/SENIOR_GIRLS.webp", href: "#" },
+  { id: "TODDLER_GIRLS", label: "TODDLER GIRLS", icon: "/images/TODDLER_GIRLS.webp", href: "#" },
   { id: "KIDS", label: "KIDS", icon: "/images/KIDS.webp", href: "#" },
 ]
 
@@ -45,15 +45,15 @@ export default function FlatKnitProducts() {
   const [loading, setLoading] = useState(false)
 
   const breadcrumbItems = [
-    { label: "WOVEN", href: "/products/woven" },
+    { id: "WOVEN", label: "WOVEN", href: "/products/woven" },
     {
-      label: "FLAT_KNIT",
+      id: "FLAT_KNIT", label: "FLAT KNIT",
       onClick: () => setSelectedCategory(null),
     },
-    { label: "CIRCULAR_KNIT", href: "/products/circular_knit" },
+    { id: "CIRCULAR_KNIT", label: "CIRCULAR KNIT", href: "/products/circular_knit" },
   ]
 
-  const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.label || ""
+  const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.id || ""
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -111,12 +111,12 @@ export default function FlatKnitProducts() {
         <ProductCategoriesSidebar
           categories={categories}
           selectedCategory={selectedCategory || ""}
-          breadcrumbLabel="FLAT_KNIT"
+          breadcrumbLabel="FLAT KNIT"
           onCategorySelect={setSelectedCategory}
         />
 
         <div className="mt-8">
-          <ProductsGrid products={products} breadcrumbName="flat_knit" />
+          <ProductsGrid products={products} breadcrumbName="flat_knit" isLoading={loading} />
         </div>
       </section>
 

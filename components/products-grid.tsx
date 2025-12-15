@@ -27,9 +27,10 @@ interface Product {
 interface ProductGridProps {
   products: Product[]
   breadcrumbName?: string
+  isLoading?: boolean
 }
 
-export function ProductsGrid({ products, breadcrumbName = "men" }: ProductGridProps) {
+export function ProductsGrid({ products, breadcrumbName = "men", isLoading = false }: ProductGridProps) {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
   const [hoveredProductId, setHoveredProductId] = useState<string | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
@@ -116,6 +117,14 @@ export function ProductsGrid({ products, breadcrumbName = "men" }: ProductGridPr
           open: true,
         })
       })
+  }
+
+  if (isLoading) {
+    return (
+      <div className="flex h-64 w-full items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-gray-900" />
+      </div>
+    )
   }
 
   return (
