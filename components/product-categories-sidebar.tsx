@@ -281,12 +281,25 @@ export function ProductCategoriesSidebar({
   }, [isDragging, handleDragMove, handleDragEnd])
 
 
+  // ... existing code ...
+
+  const LoaderOverlay = () => (
+    <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60 backdrop-blur-[2px] rounded-lg transition-all duration-300">
+      <div className="flex flex-col items-center gap-3 bg-white/80 p-6 rounded-2xl shadow-sm border border-gray-100/50">
+        <Loader2 className="h-8 w-8 animate-spin text-gray-900" />
+        <p className="text-xs font-medium text-gray-500 uppercase tracking-wider animate-pulse">Loading...</p>
+      </div>
+    </div>
+  )
+
   return (
     <>
       {/* Desktop/Laptop View */}
       <div className="hidden lg:block">
-        <div className="flex flex-col gap-6 px-4 sm:px-6 lg:px-8 py-8">
+        <div className="relative flex flex-col gap-6 px-4 sm:px-6 lg:px-8 py-8 min-h-[400px]">
+          {isLoading && <LoaderOverlay />}
           <div className="flex items-center justify-between gap-8">
+
             <div className="flex-1 min-w-[470px]">
               <div className="flex items-center gap-2 text-gray-900">
                 <span className="text-2xl font-bold uppercase tracking-wide">
@@ -379,7 +392,8 @@ export function ProductCategoriesSidebar({
 
       {/* Tablet View */}
       <div className="hidden md:block lg:hidden">
-        <div className="flex flex-col gap-6 px-4 sm:px-6 py-8">
+        <div className="relative flex flex-col gap-6 px-4 sm:px-6 py-8 min-h-[300px]">
+          {isLoading && <LoaderOverlay />}
           {/* Categories Carousel - Center */}
           <div className="w-full flex flex-col items-center">
             <div className="relative w-full max-w-4xl">
@@ -453,7 +467,8 @@ export function ProductCategoriesSidebar({
 
       {/* Mobile View */}
       <div className="md:hidden">
-        <div className="flex flex-col gap-6 px-4 py-6">
+        <div className="relative flex flex-col gap-6 px-4 py-6 min-h-[250px]">
+          {isLoading && <LoaderOverlay />}
           {/* Selected Category Display - Center */}
           <div className="flex justify-center">
             <div className="flex items-center gap-2 text-gray-900">
