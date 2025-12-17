@@ -174,7 +174,7 @@ export default function Team() {
                 OFFICE LOCATION
               </h6>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                Our production offices are located in Bangladesh. Our customers can be attended in several languages: English, Hindi, French. The wide variety of culture, nationalities and competences of Aiman Design teams is a great help to understand the market requirements all over the world.
+                Our production offices are located in Bangladesh. Our customers can be attended in several languages. The wide variety of culture, nationalities and competences of Aiman Design teams is a great help to understand the market requirements all over the world.
               </p>
               {/* <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
                 We are following international standards and code of conduct such as BSCI, Accord, Wrap, ICS.
