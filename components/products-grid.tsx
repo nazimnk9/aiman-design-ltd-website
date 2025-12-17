@@ -190,8 +190,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
 
               {/* Description */}
               <p className="text-xs text-gray-600 line-clamp-2">
-                {product.description ||
-                  "Crafted from premium materials, this piece features an impeccable fit and modern polish for a subtly sophisticated look."}
+                {product.description || ""}
               </p>
             </div>
           </div>
@@ -274,7 +273,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
                   {/* Description */}
                   <p className="text-sm text-orange-600 mb-6 leading-relaxed">
                     {selectedProduct.description ||
-                      "Crafted from the brand's signature materials, this piece features an impeccable fit and modern polish for a subtly sophisticated look and daylong comfort."}
+                      ""}
                   </p>
 
                   {/* Product Specifications Section */}
