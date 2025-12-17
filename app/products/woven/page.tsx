@@ -27,8 +27,8 @@ interface Product {
 }
 
 const categories = [
-  { id: "denim", label: "DENIM", icon: "/images/denim.webp", href: "#" },
-  { id: "non_denim", label: "NON DENIM", icon: "/images/non_denim.webp", href: "#" },
+  { id: "DENIM", label: "DENIM", icon: "/images/denim.webp", href: "#" },
+  { id: "NON_DENIM", label: "NON DENIM", icon: "/images/non_denim.webp", href: "#" },
 ]
 
 export default function WovenProducts() {
