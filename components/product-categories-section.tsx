@@ -1015,7 +1015,7 @@ export function ProductCategoriesSection() {
           {categories.map((category, index) => (
             <div key={category.id} className="animate-fadeInUp" style={{ animationDelay: `${index * 0.1}s` }}>
               <div
-                className="relative overflow-hidden rounded-lg h-80 md:h-[30rem] cursor-pointer group"
+                className="relative overflow-hidden rounded-lg h-[30rem] md:h-[30rem] cursor-pointer group"
                 onMouseEnter={() => setHoveredId(category.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 onClick={() => handleCategoryClick(category.id)}

@@ -68,13 +68,13 @@ export default function Contact() {
                   icon: Phone,
                   title: "Phone",
                   value: "+447711048902",
-                  desc: "Call us during business hours",
+                  desc: "",
                 },
                 {
                   icon: MapPin,
                   title: "Dhaka Office",
                   value: "House # 470, Road # 8, Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh",
-                  desc: "Phone: +447711048902",
+                  desc: "",
                 },
                 {
                   icon: MapPin,

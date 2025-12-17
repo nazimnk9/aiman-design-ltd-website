@@ -27,7 +27,7 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-4">
             {/* Categories */}
             <div className="text-center sm:text-left md:col-span-1">
-              <h4 className="font-bold text-black text-xl md:text-xl uppercase tracking-wider mb-2">Categories</h4>
+              <h4 className="font-bold text-black text-xl md:text-xl uppercase tracking-wider mb-2">Textile Range</h4>
               <ul className="space-y-3">
                 {[
                   { name: "Circular knit", href: "/products/circular_knit" },
@@ -53,6 +53,7 @@ export function Footer() {
                   { name: "Products", href: "/products/circular_knit" },
                   { name: "Team", href: "/team" },
                   { name: "Career", href: "/career" },
+                  { name: "Compliance", href: "/compliance" },
                   { name: "Contact", href: "/contact" }
                 ].map((item) => (
                   <li key={item.name}>
@@ -70,12 +71,12 @@ export function Footer() {
               <h4 className="font-bold text-black text-xl md:text-xl uppercase tracking-wider mb-2">Dhaka Office</h4>
               <p className="text-gray-600 text-xl mb-4">House # 470, Road # 8,<br />Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh</p>
 
-              <p className="text-gray-500 text-xl">
+              {/* <p className="text-gray-500 text-xl">
                 Phone: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
                   +447711048902
                   <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
                 </span>
-              </p>
+              </p> */}
             </div>
 
             {/* London Office */}

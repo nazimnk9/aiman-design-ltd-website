@@ -134,7 +134,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
         {products.map((product) => (
           <div
             key={product.id}
-            className="group relative border border-gray-200 transition-all hover:border-gray-900"
+            className="group relative border border-gray-200 transition-all hover:border-gray-900 m-4"
             onMouseEnter={() => setHoveredProductId(product.id)}
             onMouseLeave={() => setHoveredProductId(null)}
           >
@@ -176,7 +176,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
             </div>
 
             {/* Product Info */}
-            <div className="p-4 border-gray-200">
+            <div className="p-4 border-gray-600 border-2">
               {/* <p className="text-xs text-orange-600 font-semibold mb-1">{product.brand}</p> */}
               <h3 className="text-sm font-semibold text-gray-900 mb-2">{product.name}</h3>
 

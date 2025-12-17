@@ -142,7 +142,7 @@ export function IndustryStatsSection() {
 
     const stats: StatItem[] = [
         {
-            number: "8",
+            number: "9",
             label: "Years of experience",
         },
         {
