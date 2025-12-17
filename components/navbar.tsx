@@ -39,6 +39,7 @@ export function Navbar() {
     { label: "About", href: "/about" },
     { label: "Products", href: "/products/circular_knit" },
     { label: "Team", href: "/team" },
+    { label: "Compliance", href: "/compliance" },
     // { label: "Career", href: "/career" },
     { label: "Contact", href: "/contact" },
   ]

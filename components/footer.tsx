@@ -20,11 +20,11 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-background text-black relative overflow-hidden">
+    <footer className="bg-background pt-10 md:pt-0 text-black relative overflow-hidden">
       {/* Top Section - Categories, Account, Links, Company, Support */}
       <div className="border-b border-gray-300">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-20 py-8 sm:py-12 md:py-42">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-0">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:py-12 md:py-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-18">
             {/* Categories */}
             <div className="text-center sm:text-left md:col-span-1">
               <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">Categories</h4>
@@ -79,9 +79,9 @@ export function Footer() {
             </div>
 
             {/* London Office */}
-            <div className="text-center sm:text-left md:col-span-1 lg:ml-16 sm:ml-0 lg:w-[200px]">
+            <div className="text-center sm:text-left md:col-span-1 lg:ml-16 md:ml-1 lg:w-[200px] pb-10 md:pb-0">
               <h4 className="font-bold text-black text-sm md:text-base uppercase tracking-wider mb-2">London Office</h4>
-              <p className="text-gray-600 text-sm mb-4">13 Elm parade Main road, <br />Sidcup Kent, UK Da14 6nf .</p>
+              <p className="text-gray-600 text-sm mb-4">13 Elm parade Main road, <br />Sidcup Kent, UK Da14 6nf.</p>
 
               <p className="text-gray-500 text-xs">
                 Email: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
@@ -99,8 +99,11 @@ export function Footer() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 md:py-16">
           <div className="flex justify-center items-center">
             {/* Logo - Centered */}
-            <div className="flex justify-center">
-              <Image src="/logo.png" alt="Styliz Logo" width={100} height={60} className="h-16 w-auto" />
+            <div className="flex flex-col justify-center items-center">
+              <Image src="/logo.png" alt="Styliz Logo" width={100} height={60} className="h-20 w-auto" />
+              <p className="text-gray-600 text-sm mt-6 text-center max-w-3xl mx-auto leading-relaxed">
+                Aiman Design Ltd is an apparel sourcing and manufacturing company in Wovens including Denims, Non-denims, Padded Jackets and Pants, Work wear Products, Circular Knit, and Flat Knits. We have wide production facilities, based on long term partnerships with manufacturers and fabric suppliers in Asia.
+              </p>
             </div>
           </div>
         </div>
