@@ -12,7 +12,7 @@ const companies = [
     name: "BSCI",
     logo: (
       <img
-        src="/images/bsci_logo_for_social_compliance_in_business_practices.jpg"
+        src="/images/bsci_logo_for_social_compliance_in_business_practices.png"
         alt="BSCI"
         className="h-full w-full object-contain"
       />
@@ -32,7 +32,7 @@ const companies = [
     name: "Accord",
     logo: (
       <img
-        src="/images/international_accord_invalid_bd_govt_permits.jpg"
+        src="/images/international_accord_invalid_bd_govt_permits.png"
         alt="Accord"
         className="h-full w-full object-contain"
       />
@@ -52,7 +52,7 @@ const companies = [
     name: "GOTS",
     logo: (
       <img
-        src="/images/gots2new.jpg"
+        src="/images/gots2new.png"
         alt="GOTS"
         className="h-full w-full object-contain"
       />
