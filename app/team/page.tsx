@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 import { Linkedin, Twitter } from 'lucide-react'
 import { Background3D } from "@/components/3d-background"
 import { HeaderTopBar } from "@/components/header-top-bar"
+import { useEffect, useRef, useState } from "react"
 
 const teamMembers = [
   {
@@ -46,6 +47,63 @@ const teamMembers = [
 ]
 
 export default function Team() {
+
+  const [isVisible, setIsVisible] = useState(false)
+    const sectionRef = useRef<HTMLDivElement>(null)
+  
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setIsVisible(true)
+            }
+          })
+        },
+        { threshold: 0.2 },
+      )
+  
+      if (sectionRef.current) {
+        observer.observe(sectionRef.current)
+      }
+  
+      return () => {
+        if (sectionRef.current) {
+          observer.unobserve(sectionRef.current)
+        }
+      }
+    }, [])
+  
+    const scrollRef = useRef<HTMLDivElement>(null)
+  
+    useEffect(() => {
+      const scrollContainer = scrollRef.current
+      if (!scrollContainer) return
+  
+      let animationFrameId: number
+      let scrollPosition = 0 // Start from the beginning
+  
+      const animate = () => {
+        // Move right to left (increasing scrollLeft)
+        scrollPosition += 1
+  
+        // Reset when we've scrolled past the first set of items (1/3 of total width)
+        if (scrollPosition >= scrollContainer.scrollWidth / 3) {
+          scrollPosition = 0
+        }
+  
+        scrollContainer.scrollLeft = scrollPosition
+        animationFrameId = requestAnimationFrame(animate)
+      }
+  
+      animationFrameId = requestAnimationFrame(animate)
+  
+      return () => {
+        cancelAnimationFrame(animationFrameId)
+      }
+    }, [])
+
+
   return (
     <div className="min-h-screen bg-background">
       <HeaderTopBar />
@@ -63,10 +121,10 @@ export default function Team() {
       </section>
 
       {/* Team Grid - Added 3D background animation */}
-      <section className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 overflow-hidden">
+      <section  ref={sectionRef} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-22 overflow-hidden">
         {/* <Background3D type="home" /> */}
         <div className="relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, i) => (
               <div key={member.name} className="group animate-fadeInUp" style={{ animationDelay: `${i * 0.1}s` }}>
                 <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all hover:-translate-y-2">
@@ -93,7 +151,35 @@ export default function Team() {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
+
+          
+            <div
+              className={`max-w-4xl mx-auto transition-all duration-1000 ${isVisible ? "animate-slideInLeft opacity-100" : "opacity-0 -translate-x-20"}`}
+            >
+              {/* <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mb-16 animate-bounce-slow">
+                <Shield className="w-10 h-10 text-white" />
+              </div> */}
+              <h2 className="text-4xl md:text-6xl font-bold text-foreground text-balance tracking-tight mb-10">
+                A TEAM OF PROFESSIONALS
+              </h2>
+            </div>
+            <div
+              className={`max-w-4xl mx-auto space-y-6 transition-all duration-1000 delay-150 ${isVisible ? "animate-slideInRight opacity-100" : "opacity-0 translate-x-20"}`}
+            >
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
+                Skilled expatriates from India, Srilanka along with Bangladeshi Professionals with the help of more than 15 garments technologists, designers, merchandisers, quality controllers, pattern masters, production managers… are closely monitoring your orders and products.
+              </p>
+              <h6 className="text-2xl md:text-3xl font-bold text-foreground text-balance tracking-tight mb-8">
+                OFFICE LOCATION
+              </h6>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                Our production offices are located in Bangladesh. Our customers can be attended in several languages: English, Hindi, French. The wide variety of culture, nationalities and competences of Aiman Design teams is a great help to understand the market requirements all over the world.
+              </p>
+              {/* <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                We are following international standards and code of conduct such as BSCI, Accord, Wrap, ICS.
+              </p> */}
+            </div>
         </div>
       </section>
 
