@@ -95,19 +95,41 @@ export function Footer() {
       </div>
 
       {/* Middle Section - Logo */}
-      <div className="border-b border-gray-300">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 md:py-16">
+      <div className="relative border-b border-gray-300 overflow-hidden">
+        {/* Video background */}
+        <video
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+        >
+          <source src="/footer_video.mp4" type="video/mp4" />
+        </video>
+
+        {/* Optional: overlay to improve text readability */}
+        <div className="absolute inset-0 bg-white/40" />
+
+        {/* Content */}
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-8 sm:py-12 md:py-16">
           <div className="flex justify-center items-center">
-            {/* Logo - Centered */}
             <div className="flex flex-col justify-center items-center">
-              <Image src="/logo.png" alt="Styliz Logo" width={100} height={60} className="h-20 w-auto" />
-              <p className="text-gray-600 text-sm mt-6 text-center max-w-3xl mx-auto leading-relaxed">
+              <Image
+                src="/logo.png"
+                alt="Styliz Logo"
+                width={100}
+                height={60}
+                className="h-20 w-auto"
+              />
+              <p className="text-gray-700 text-sm mt-6 text-center max-w-3xl mx-auto leading-relaxed">
                 Aiman Design Ltd is an apparel sourcing and manufacturing company in Wovens including Denims, Non-denims, Padded Jackets and Pants, Work wear Products, Circular Knit, and Flat Knits. We have wide production facilities, based on long term partnerships with manufacturers and fabric suppliers in Asia.
               </p>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Bottom Section - Copyright and Payment Methods */}
 
