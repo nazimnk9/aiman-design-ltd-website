@@ -1006,7 +1006,7 @@ export function ProductCategoriesSection() {
 
         {/* Header - Centered for all devices */}
         <div className="text-center mb-16 animate-fadeInUp">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Our Textile Range</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Our Product Range</h2>
           {/* <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explore our diverse collection for everyone</p> */}
         </div>
 

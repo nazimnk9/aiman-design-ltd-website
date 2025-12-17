@@ -98,14 +98,14 @@ export function HeaderTopBar() {
         <div className="flex items-center gap-2">
           <Mail size={16} style={{ color: "#dde0e7ff" }} />
           <a
-            href="/contact"
+            href="mailto:russel@aimandesignltd.com"
             className="text-xs font-medium"
             style={{
               color: "#FFF",
               textDecoration: "none",
             }}
           >
-            hello@aiman.com
+            russel@aimandesignltd.com
           </a>
         </div>
 

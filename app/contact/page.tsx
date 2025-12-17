@@ -61,26 +61,30 @@ export default function Contact() {
                 {
                   icon: Mail,
                   title: "Email",
-                  value: "hello@aiman.com",
+                  value: "russel@aimandesignltd.com",
                   desc: "Send us an email anytime",
+                  des: "",
                 },
                 {
                   icon: Phone,
                   title: "Phone",
                   value: "+447711048902",
                   desc: "",
+                  des: "",
                 },
                 {
                   icon: MapPin,
                   title: "Dhaka Office",
                   value: "House # 470, Road # 8, Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh",
                   desc: "",
+                  des: "",
                 },
                 {
                   icon: MapPin,
                   title: "London Office",
-                  value: "13 Elm parade Main road, Sidcup Kent, UK Da14 6nf .",
+                  value: "13 Elm parade Main road, Sidcup Kent, UK Da14 6nf.",
                   desc: "Phone: +447711048902",
+                  des: "Email: russel@aimandesignltd.com",
                 },
               ].map((item, i) => {
                 const IconComponent = item.icon
@@ -94,6 +98,7 @@ export default function Contact() {
                         <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
                         <p className="text-primary">{item.value}</p>
                         <p className="text-muted-foreground text-sm">{item.desc}</p>
+                        <p className="text-muted-foreground text-sm">{item.des}</p>
                       </div>
                     </div>
                   </div>

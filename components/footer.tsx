@@ -24,10 +24,10 @@ export function Footer() {
       {/* Top Section - Categories, Account, Links, Company, Support */}
       <div className="border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:py-12 md:py-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-6 lg:gap-5">
             {/* Categories */}
             <div className="text-center sm:text-left md:col-span-1">
-              <h4 className="font-bold text-black text-xl md:text-xl uppercase tracking-wider mb-2">Textile Range</h4>
+              <h4 className="font-bold text-black text-xl md:text-xl uppercase tracking-wider mb-2">Product Range</h4>
               <ul className="space-y-3">
                 {[
                   { name: "Circular knit", href: "/products/circular_knit" },
@@ -80,13 +80,19 @@ export function Footer() {
             </div>
 
             {/* London Office */}
-            <div className="text-center sm:text-left md:col-span-1 lg:ml-16 md:ml-1 pb-10 md:pb-0">
+            <div className="text-center sm:text-left md:col-span-1 pb-10 md:pb-0">
               <h4 className="font-bold text-black text-xl md:text-xl uppercase tracking-wider mb-2">London Office</h4>
               <p className="text-gray-600 text-xl mb-4">13 Elm parade Main road, <br />Sidcup Kent, UK Da14 6nf.</p>
 
-              <p className="text-gray-500 text-xl">
+              <p className="text-gray-500 text-md lg:text-lg">
                 Phone: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
                   +447711048902
+                  <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
+                </span>
+              </p>
+              <p className="text-gray-500 text-[13px] md:text-md lg:text-lg">
+                Email: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
+                  russel@aimandesignltd.com
                   <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
                 </span>
               </p>

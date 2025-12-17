@@ -75,7 +75,7 @@ export function AboutSection() {
 
               <div className="prose prose-lg max-w-none">
                 <p className="inline-block text-white px-3 py-1 text-xs md:text-lg leading-relaxed mb-1 md:mb-4">
-                  Aiman Design Ltd. is a one-stop garment solution and manufacturer in Bangladesh, established in 2016. We evolved from a sourcing-focused startup into a partner managing complex supply chains for global importers, brands, and retailers. Strong in woven (including denim and non-denim), padded jackets and pants, workwear, circular knits, and flat knits, we operate through wide production facilities built on long-term partnerships with manufacturers and fabric suppliers across Asia.
+                  Aiman Design Ltd. is a one-stop manufacturer and garments sourcing in Bangladesh, established in 2016. We evolved from a sourcing-focused startup into a partner managing complex supply chains for global importers, brands, and retailers. Strong in woven (including denim and non-denim), padded jackets and pants, workwear, circular knits, and flat knits, we operate through wide production facilities built on long-term partnerships with manufacturers and fabric suppliers across Asia.
                 </p>
 
               </div>
