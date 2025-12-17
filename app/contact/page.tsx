@@ -67,20 +67,20 @@ export default function Contact() {
                 {
                   icon: Phone,
                   title: "Phone",
-                  value: "+1 (555) 123-4567",
+                  value: "+447711048902",
                   desc: "Call us during business hours",
                 },
                 {
                   icon: MapPin,
                   title: "Dhaka Office",
                   value: "House # 470, Road # 8, Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh",
-                  desc: "Visit us in person",
+                  desc: "Phone: +447711048902",
                 },
                 {
                   icon: MapPin,
                   title: "London Office",
                   value: "13 Elm parade Main road, Sidcup Kent, UK Da14 6nf .",
-                  desc: "Visit us in person",
+                  desc: "Phone: +447711048902",
                 },
               ].map((item, i) => {
                 const IconComponent = item.icon
@@ -92,7 +92,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
-                        <p className="font-semibold text-primary">{item.value}</p>
+                        <p className="text-primary">{item.value}</p>
                         <p className="text-muted-foreground text-sm">{item.desc}</p>
                       </div>
                     </div>

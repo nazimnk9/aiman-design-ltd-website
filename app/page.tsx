@@ -499,7 +499,7 @@ const companies = [
     name: "BSCI",
     logo: (
       <img
-        src="/images/bsci-logo-for-social-compliance-in-business-practices.jpg"
+        src="/images/bsci_logo_for_social_compliance_in_business_practices.png"
         alt="BSCI"
         className="h-full w-full object-contain"
       />
@@ -519,7 +519,7 @@ const companies = [
     name: "Accord",
     logo: (
       <img
-        src="/images/international-accord-invalid-bd-govt-permits.jpg"
+        src="/images/international_accord_invalid_bd_govt_permits.png"
         alt="Accord"
         className="h-full w-full object-contain"
       />
@@ -539,7 +539,7 @@ const companies = [
     name: "GOTS",
     logo: (
       <img
-        src="/images/gots2new.jpg"
+        src="/images/gots2new.png"
         alt="GOTS"
         className="h-full w-full object-contain"
       />
@@ -890,7 +890,7 @@ export default function Home() {
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <p className="text-white/70 mb-2">{item.label}</p>
-                <p className="text-xl font-semibold">{item.value}</p>
+                <p className="text-xl">{item.value}</p>
               </div>
             ))}
           </div>

@@ -71,8 +71,8 @@ export function Footer() {
               <p className="text-gray-600 text-sm mb-4">House # 470, Road # 8,<br />Level-3 DOHS Baridhara, Dhaka-1212, Bangladesh</p>
 
               <p className="text-gray-500 text-xs">
-                Email: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
-                  contact@example.com
+                Phone: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
+                  +447711048902
                   <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
                 </span>
               </p>
@@ -84,8 +84,8 @@ export function Footer() {
               <p className="text-gray-600 text-sm mb-4">13 Elm parade Main road, <br />Sidcup Kent, UK Da14 6nf.</p>
 
               <p className="text-gray-500 text-xs">
-                Email: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
-                  contact@example.com
+                Phone: <span className="text-gray-600 hover:text-green-600 transition-colors duration-300 relative group">
+                  +447711048902
                   <span className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300 w-0 group-hover:w-full bg-green-600"></span>
                 </span>
               </p>

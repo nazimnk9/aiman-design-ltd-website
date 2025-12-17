@@ -125,7 +125,7 @@ export function HeaderTopBar() {
         </div>
 
         {/* Location */}
-        <div className="flex items-center gap-2">
+        {/* <div className="flex items-center gap-2">
           <MapPin size={16} style={{ color: "#E5E7EB" }} />
           <span
             className="text-xs font-medium"
@@ -135,7 +135,7 @@ export function HeaderTopBar() {
           >
             13 Elm parade Main road, Sidcup Kent, UK
           </span>
-        </div>
+        </div> */}
       </div>
 
       <style jsx>{`
