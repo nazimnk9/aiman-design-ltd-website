@@ -13,6 +13,7 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   })
@@ -29,7 +30,7 @@ export default function Contact() {
     e.preventDefault()
     setSubmitted(true)
     setTimeout(() => setSubmitted(false), 3000)
-    setFormData({ name: "", email: "", subject: "", message: "" })
+    setFormData({ name: "", email: "", phone:"", subject: "", message: "" })
   }
 
   return (
@@ -109,7 +110,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <form onSubmit={handleSubmit} className="space-y-6 animate-fadeInUp">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
                       Name
@@ -125,6 +126,8 @@ export default function Contact() {
                       placeholder="Your name"
                     />
                   </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
                       Email
@@ -138,6 +141,21 @@ export default function Contact() {
                       required
                       className="w-full px-4 py-3 rounded-lg border border-border focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
                       placeholder="your@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
+                      Phone
+                    </label>
+                    <input
+                      type="number"
+                      id="number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition"
+                      placeholder="Enter your phone number"
                     />
                   </div>
                 </div>

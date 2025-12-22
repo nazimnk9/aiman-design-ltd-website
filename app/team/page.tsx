@@ -160,16 +160,16 @@ export default function Team() {
               {/* <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent mb-16 animate-bounce-slow">
                 <Shield className="w-10 h-10 text-white" />
               </div> */}
-              <h2 className="text-4xl md:text-6xl font-bold text-foreground text-balance tracking-tight mb-10">
+              <h6 className="text-2xl md:text-3xl font-bold text-foreground text-balance tracking-tight mb-8">
                 A TEAM OF PROFESSIONALS
-              </h2>
+              </h6>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+                Skilled expatriates from India, Srilanka along with Bangladeshi Professionals with the help of more than 15 garments technologists, designers, merchandisers, quality controllers, pattern masters, production managers… are closely monitoring your orders and products.
+              </p>
             </div>
             <div
               className={`max-w-4xl mx-auto space-y-6 transition-all duration-1000 delay-150 ${isVisible ? "animate-slideInRight opacity-100" : "opacity-0 translate-x-20"}`}
             >
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-10">
-                Skilled expatriates from India, Srilanka along with Bangladeshi Professionals with the help of more than 15 garments technologists, designers, merchandisers, quality controllers, pattern masters, production managers… are closely monitoring your orders and products.
-              </p>
               <h6 className="text-2xl md:text-3xl font-bold text-foreground text-balance tracking-tight mb-8">
                 OFFICE LOCATION
               </h6>
