@@ -43,7 +43,7 @@ export default function Contact() {
 
     const payload = {
       ...formData,
-      to_email: "russel@aimandesignltd.com",
+      to_email: "contactwnoor@gmail.com",
     }
 
     try {
@@ -67,7 +67,7 @@ export default function Contact() {
           className: "bg-green-500 text-white border-none",
         })
       } else {
-        let errorMessage = data.message || "Something went wrong."
+        let errorMessage = data.message || data.detail || "Something went wrong."
         if (data.errors && data.errors.message) {
           errorMessage = data.errors.message[0]
         }
