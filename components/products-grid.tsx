@@ -167,7 +167,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
                 <div className="absolute inset-0 flex items-end justify-center pb-4 bg-black/20 transition-all">
                   <button
                     onClick={() => handleQuickView(product)}
-                    className="bg-white text-gray-900 px-6 py-2 text-sm font-semibold hover:bg-gray-100 transition-colors"
+                    className="bg-white text-gray-900 px-6 py-2 text-sm font-semibold hover:bg-gray-100 transition-colors cursor-pointer"
                   >
                     QUICK VIEW
                   </button>
@@ -204,7 +204,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
             {/* Close Button */}
             <button
               onClick={() => setSelectedProduct(null)}
-              className="absolute top-4 right-4 z-10 text-gray-600 hover:text-gray-900"
+              className="absolute top-4 right-4 z-10 text-gray-600 hover:text-gray-900 cursor-pointer"
             >
               <X size={24} />
             </button>
