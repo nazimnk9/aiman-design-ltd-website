@@ -976,6 +976,11 @@ interface Category {
 
 const categories: Category[] = [
   {
+    id: "circular_knit",
+    name: "Circular Knit",
+    image: "/circular_knit.jpg",
+  },
+  {
     id: "woven",
     name: "Woven",
     image: "/woven.jpg",
@@ -984,11 +989,6 @@ const categories: Category[] = [
     id: "flat_knit",
     name: "Flat Knit",
     image: "/flat_knit.jpg",
-  },
-  {
-    id: "circular_knit",
-    name: "Circular Knit",
-    image: "/circular_knit.jpg",
   },
 ]
 
