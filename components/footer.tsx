@@ -31,8 +31,8 @@ export function Footer() {
               <ul className="space-y-3">
                 {[
                   { name: "Circular knit", href: "/products/circular_knit" },
+                  { name: "Woven", href: "/products/woven" },
                   { name: "Flat knit", href: "/products/flat_knit" },
-                  { name: "Woven", href: "/products/woven" }
                 ].map((item) => (
                   <li key={item.name}>
                     <Link href={item.href} className="text-gray-600 hover:text-green-600 transition-colors duration-300 text-xl relative group">
