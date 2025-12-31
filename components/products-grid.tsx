@@ -136,7 +136,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
         {products.map((product) => (
           <div
             key={product.id}
-            className="group relative border border-gray-200 transition-all hover:border-gray-900 m-4"
+            className="group relative border border-gray-200 transition-all hover:border-gray-900 m-4 cursor-pointer"
             onMouseEnter={() => setHoveredProductId(product.id)}
             onMouseLeave={() => setHoveredProductId(null)}
             onClick={() => handleQuickView(product)}
