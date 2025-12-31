@@ -35,12 +35,14 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
   const [hoveredProductId, setHoveredProductId] = useState<string | null>(null)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isLoadingDetails, setIsLoadingDetails] = useState(false)
+  const [isFullScreenImage, setIsFullScreenImage] = useState(false)
   const { toast } = useToast()
 
   const handleQuickView = async (product: Product) => {
     // Show modal immediately with basic info
     setSelectedProduct(product)
     setCurrentImageIndex(0)
+    setIsFullScreenImage(false)
 
     if (product.uid) {
       setIsLoadingDetails(true)
@@ -137,6 +139,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
             className="group relative border border-gray-200 transition-all hover:border-gray-900 m-4"
             onMouseEnter={() => setHoveredProductId(product.id)}
             onMouseLeave={() => setHoveredProductId(null)}
+            onClick={() => handleQuickView(product)}
           >
             {/* Product Card */}
             <div className="relative overflow-hidden p-0">
@@ -212,12 +215,17 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
             <div className="flex gap-8 h-full overflow-y-auto">
               {/* Left: Product Image with Carousel */}
               <div className="w-2/5 relative bg-gray-100 flex-shrink-0">
-                <Image
-                  src={selectedProduct.images[currentImageIndex] || "/placeholder.svg"}
-                  alt={selectedProduct.name}
-                  fill
-                  className="object-fixed"
-                />
+                <div
+                  className="relative w-full h-full cursor-pointer"
+                  onClick={() => setIsFullScreenImage(true)}
+                >
+                  <Image
+                    src={selectedProduct.images[currentImageIndex] || "/placeholder.svg"}
+                    alt={selectedProduct.name}
+                    fill
+                    className="object-fixed"
+                  />
+                </div>
 
                 {isLoadingDetails && (
                   <div className="absolute inset-0 flex items-center justify-center bg-white/50 z-20">
@@ -234,13 +242,19 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
                 {selectedProduct.images.length > 1 && (
                   <>
                     <button
-                      onClick={handlePrevImage}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePrevImage();
+                      }}
                       className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full transition-colors z-20"
                     >
                       <ChevronLeft size={20} />
                     </button>
                     <button
-                      onClick={handleNextImage}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNextImage();
+                      }}
                       className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full transition-colors z-20"
                     >
                       <ChevronRight size={20} />
@@ -253,6 +267,50 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
                   </>
                 )}
               </div>
+
+              {/* Full Screen Image Mode */}
+              {isFullScreenImage && (
+                <div className="fixed inset-0 z-[60] bg-black/90 flex items-center justify-center">
+                  <button
+                    onClick={() => setIsFullScreenImage(false)}
+                    className="absolute top-4 right-4 text-white hover:text-gray-300 z-50 p-2 cursor-pointer"
+                  >
+                    <X size={32} />
+                  </button>
+
+                  <div className="relative w-full h-full p-10 flex items-center justify-center">
+                    <Image
+                      src={selectedProduct.images[currentImageIndex] || "/placeholder.svg"}
+                      alt={selectedProduct.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+
+                  {selectedProduct.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handlePrevImage();
+                        }}
+                        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 z-50"
+                      >
+                        <ChevronLeft size={48} />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleNextImage();
+                        }}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 z-50"
+                      >
+                        <ChevronRight size={48} />
+                      </button>
+                    </>
+                  )}
+                </div>
+              )}
 
               {/* Right: Product Details */}
               <div className="w-3/5 p-8 flex flex-col justify-between overflow-y-auto">
