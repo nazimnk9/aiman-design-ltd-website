@@ -45,12 +45,12 @@ export default function CircularKnitProducts() {
   const [loading, setLoading] = useState(false)
 
   const breadcrumbItems = [
-    { id: "WOVEN", label: "WOVEN", href: "/products/woven" },
-    { id: "FLAT_KNIT", label: "FLAT KNIT", href: "/products/flat_knit" },
     {
       id: "CIRCULAR_KNIT", label: "CIRCULAR KNIT",
       onClick: () => setSelectedCategory(null),
     },
+    { id: "WOVEN", label: "WOVEN", href: "/products/woven" },
+    { id: "FLAT_KNIT", label: "FLAT KNIT", href: "/products/flat_knit" },
   ]
 
   const selectedLabel = categories.find((cat) => cat.id === selectedCategory)?.id || ""

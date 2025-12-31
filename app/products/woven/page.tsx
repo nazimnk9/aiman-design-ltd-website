@@ -37,12 +37,12 @@ export default function WovenProducts() {
   const [loading, setLoading] = useState(false)
 
   const breadcrumbItems = [
+    { id: "CIRCULAR_KNIT", label: "CIRCULAR KNIT", href: "/products/circular_knit" },
     {
       id: "WOVEN", label: "WOVEN",
       onClick: () => setSelectedCategory(null),
     },
     { id: "FLAT_KNIT", label: "FLAT KNIT", href: "/products/flat_knit" },
-    { id: "CIRCULAR_KNIT", label: "CIRCULAR KNIT", href: "/products/circular_knit" },
   ]
 
 
