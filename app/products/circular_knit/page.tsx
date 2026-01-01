@@ -27,7 +27,7 @@ interface Product {
 }
 
 const categories = [
-  { id: "MENS", label: "MENS", icon: "/images/MENS.webp", href: "#" },
+  { id: "MENS", label: "MENS", icon: "/images/MENS_2.png", href: "#" },
   { id: "JR_LADIES", label: "JUNIOR LADIES", icon: "/images/JR_LADIES.webp", href: "#" },
   { id: "WOMEN", label: "WOMEN", icon: "/images/WOMEN.webp", href: "#" },
   { id: "JUNIOR_BOYS", label: "JUNIOR BOYS", icon: "/images/JUNIOR_BOYS.webp", href: "#" },

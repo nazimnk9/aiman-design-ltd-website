@@ -349,13 +349,13 @@ export function ProductCategoriesSidebar({
                               : "border-gray-200 hover:border-gray-900"
                               }`}
                           >
-                            <div className="w-32 h-50 flex items-center justify-center">
+                            <div className="w-52 h-50 flex items-center justify-center">
                               <Image
                                 src={category.icon || "/placeholder.svg"}
                                 alt={category.label}
                                 width={350}
                                 height={550}
-                                className="w-full h-full object-cover pointer-events-none"
+                                className="w-full h-full object-fixed pointer-events-none"
                                 draggable={false}
                               />
                             </div>
