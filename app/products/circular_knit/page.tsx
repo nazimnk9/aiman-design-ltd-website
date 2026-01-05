@@ -28,8 +28,8 @@ interface Product {
 
 const categories = [
   { id: "MENS", label: "MENS", icon: "/images/MENS_2.png", href: "#" },
-  { id: "JR_LADIES", label: "JUNIOR LADIES", icon: "/images/circle_jr_ladies.webp", href: "#" },
-  { id: "WOMEN", label: "WOMEN", icon: "/images/circular_women.webp", href: "#" },
+  { id: "JR_LADIES", label: "JUNIOR LADIES", icon: "/images/circle_jr_ladiess.webp", href: "#" },
+  { id: "WOMEN", label: "WOMEN", icon: "/images/circular_womens.webp", href: "#" },
   { id: "JUNIOR_BOYS", label: "JUNIOR BOYS", icon: "/images/JUNIOR_BOYS.webp", href: "#" },
   { id: "SENIOR_BOYS", label: "SENIOR BOYS", icon: "/images/SENIOR_BOYS.webp", href: "#" },
   { id: "TODDLER_BOYS", label: "TODDLER BOYS", icon: "/images/TODDLER_BOYS.webp", href: "#" },
