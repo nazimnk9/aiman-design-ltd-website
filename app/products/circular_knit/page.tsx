@@ -30,13 +30,13 @@ const categories = [
   { id: "MENS", label: "MENS", icon: "/images/MENS_2.png", href: "#" },
   { id: "JR_LADIES", label: "JUNIOR LADIES", icon: "/images/circle_jr_ladies.webp", href: "#" },
   { id: "WOMEN", label: "WOMEN", icon: "/images/circular_women.webp", href: "#" },
-  { id: "JUNIOR_BOYS", label: "JUNIOR BOYS", icon: "/images/JUNIOR_BOYS.webp", href: "#" },
-  { id: "SENIOR_BOYS", label: "SENIOR BOYS", icon: "/images/SENIOR_BOYS.webp", href: "#" },
-  { id: "TODDLER_BOYS", label: "TODDLER BOYS", icon: "/images/TODDLER_BOYS.webp", href: "#" },
-  { id: "JUNIOR_GIRLS", label: "JUNIOR GIRLS", icon: "/images/JUNIOR_GIRLS.webp", href: "#" },
-  { id: "SENIOR_GIRLS", label: "SENIOR GIRLS", icon: "/images/SENIOR_GIRLS.webp", href: "#" },
-  { id: "TODDLER_GIRLS", label: "TODDLER GIRLS", icon: "/images/TODDLER_GIRLS.webp", href: "#" },
-  { id: "KIDS", label: "KIDS", icon: "/images/KIDS.webp", href: "#" },
+  { id: "JUNIOR_BOYS", label: "JUNIOR BOYS", icon: "/images/circle_jr_boys.webp", href: "#" },
+  { id: "SENIOR_BOYS", label: "SENIOR BOYS", icon: "/images/circle_sr_boys.webp", href: "#" },
+  { id: "TODDLER_BOYS", label: "TODDLER BOYS", icon: "/images/circle_toddler_boys.webp", href: "#" },
+  { id: "JUNIOR_GIRLS", label: "JUNIOR GIRLS", icon: "/images/circle_jr_girls.webp", href: "#" },
+  { id: "SENIOR_GIRLS", label: "SENIOR GIRLS", icon: "/images/circle_sr_girls.webp", href: "#" },
+  { id: "TODDLER_GIRLS", label: "TODDLER GIRLS", icon: "/images/circle_toddler_girls.webp", href: "#" },
+  { id: "KIDS", label: "KIDS", icon: "/images/circle_kids.webp", href: "#" },
 ]
 
 export default function CircularKnitProducts() {
