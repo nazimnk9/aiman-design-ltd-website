@@ -212,60 +212,62 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
               <X size={24} />
             </button>
 
-            <div className="flex gap-8 h-full overflow-y-auto">
+            <div className="flex flex-col md:flex-row gap-4 md:gap-8 h-full overflow-y-auto">
               {/* Left: Product Image with Carousel */}
-              <div className="w-2/5 relative bg-gray-100 flex-shrink-0">
-                <div
-                  className="relative w-full h-full cursor-pointer"
-                  onClick={() => setIsFullScreenImage(true)}
-                >
-                  <Image
-                    src={selectedProduct.images[currentImageIndex] || "/placeholder.svg"}
-                    alt={selectedProduct.name}
-                    fill
-                    className="object-fixed"
-                  />
-                </div>
-
-                {isLoadingDetails && (
-                  <div className="absolute inset-0 flex items-center justify-center bg-white/50 z-20">
-                    <Loader2 className="h-8 w-8 animate-spin text-gray-900" />
+              <div className="w-full md:w-2/5 relative bg-gray-100 flex-shrink-0 flex justify-center md:block pt-4 md:pt-0">
+                <div className="relative w-[256px] h-[256px] md:w-full md:h-full">
+                  <div
+                    className="relative w-full h-full cursor-pointer"
+                    onClick={() => setIsFullScreenImage(true)}
+                  >
+                    <Image
+                      src={selectedProduct.images[currentImageIndex] || "/placeholder.svg"}
+                      alt={selectedProduct.name}
+                      fill
+                      className="object-fixed md:object-cover"
+                    />
                   </div>
-                )}
 
-                {/* {selectedProduct.discount && (
+                  {isLoadingDetails && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-white/50 z-20">
+                      <Loader2 className="h-8 w-8 animate-spin text-gray-900" />
+                    </div>
+                  )}
+
+                  {/* {selectedProduct.discount && (
                   <div className="absolute top-4 left-4 bg-red-100 text-red-600 px-2 py-1 text-xs font-semibold rounded">
                     {`-${selectedProduct.discount}%`}
                   </div>
                 )} */}
 
-                {selectedProduct.images.length > 1 && (
-                  <>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handlePrevImage();
-                      }}
-                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full transition-colors z-20"
-                    >
-                      <ChevronLeft size={20} />
-                    </button>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleNextImage();
-                      }}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full transition-colors z-20"
-                    >
-                      <ChevronRight size={20} />
-                    </button>
+                  {selectedProduct.images.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handlePrevImage();
+                        }}
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full transition-colors z-20"
+                      >
+                        <ChevronLeft size={20} />
+                      </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleNextImage();
+                        }}
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-gray-900 p-2 rounded-full transition-colors z-20"
+                      >
+                        <ChevronRight size={20} />
+                      </button>
 
-                    {/* Image Counter */}
-                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded text-xs">
-                      {currentImageIndex + 1} / {selectedProduct.images.length}
-                    </div>
-                  </>
-                )}
+                      {/* Image Counter */}
+                      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/60 text-white px-3 py-1 rounded text-xs">
+                        {currentImageIndex + 1} / {selectedProduct.images.length}
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
 
               {/* Full Screen Image Mode */}
@@ -313,7 +315,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
               )}
 
               {/* Right: Product Details */}
-              <div className="w-3/5 p-8 flex flex-col justify-between overflow-y-auto">
+              <div className="w-full md:w-3/5 p-4 md:p-8 flex flex-col justify-between overflow-y-auto">
                 <div>
                   {/* <p className="text-sm font-bold text-gray-900 uppercase mb-2">{selectedProduct.brand}</p> */}
                   <h2 className="text-2xl font-bold text-gray-900 mb-3">{selectedProduct.name}</h2>
