@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   title: "AIMAN - Premium Garments",
   description: "Discover premium quality garments with AIMAN - where style meets excellence",
   generator: "v0.app",
+  icons: {
+    icon: [
+      {
+        url: '/fav.ico',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/fav.ico',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+    apple: '/app_icon.png',
+  },
 }
 
 export default function RootLayout({
