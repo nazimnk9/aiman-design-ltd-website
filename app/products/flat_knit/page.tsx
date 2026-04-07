@@ -94,7 +94,7 @@ export default function FlatKnitProducts() {
             description: item.description,
             style: item.style_no,
             composition: item.fabrication,
-            weight: item.weight ? `${item.weight} ${item.weight_type}` : undefined,
+            weight: item.weight ? `${parseFloat(item.weight)} ${item.weight_type}` : undefined,
             sewingOperation: item.item
           }))
           setProducts(mappedProducts)

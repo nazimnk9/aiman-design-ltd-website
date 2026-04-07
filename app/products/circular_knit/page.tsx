@@ -81,7 +81,7 @@ export default function CircularKnitProducts() {
             description: item.description,
             style: item.style_no,
             composition: item.fabrication,
-            weight: item.weight ? `${item.weight} ${item.weight_type}` : undefined,
+            weight: item.weight ? `${parseFloat(item.weight)} ${item.weight_type}` : undefined,
             sewingOperation: item.item // Using 'item' field as sewingOperation substitute or similar
           }))
           setProducts(mappedProducts)

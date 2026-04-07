@@ -60,7 +60,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
             description: data.description || product.description,
             style: data.style_no || product.style,
             composition: data.fabrication || product.composition,
-            weight: data.weight ? `${data.weight} ${data.weight_type}` : product.weight,
+            weight: data.weight ? `${parseFloat(data.weight)} ${data.weight_type}` : product.weight,
             sewingOperation: data.item || product.sewingOperation, // Mapping item to sewingOperation as per previous logic
             images: data.images && data.images.length > 0
               ? data.images.map((img: any) => img.file)
