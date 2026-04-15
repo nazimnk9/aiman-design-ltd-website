@@ -978,7 +978,7 @@ const categories: Category[] = [
   {
     id: "circular_knit",
     name: "Circular Knit",
-    image: "/circular_knit.jpg",
+    image: "/flat_knit.jpg",
   },
   {
     id: "woven",
@@ -988,7 +988,7 @@ const categories: Category[] = [
   {
     id: "flat_knit",
     name: "Flat Knit",
-    image: "/flat_knit.jpg",
+    image: "/circular_knit.jpg",
   },
 ]
 
