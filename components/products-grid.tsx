@@ -203,7 +203,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
       {/* Quick View Modal */}
       {selectedProduct && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-lg relative">
+          <div className="bg-white w-full max-w-4xl min-h-[55vh] overflow-hidden rounded-lg relative">
             {/* Close Button */}
             <button
               onClick={() => setSelectedProduct(null)}
@@ -214,8 +214,8 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
 
             <div className="flex flex-col md:flex-row gap-4 md:gap-8 h-full overflow-y-auto">
               {/* Left: Product Image with Carousel */}
-              <div className="w-full md:w-2/5 relative bg-gray-100 flex-shrink-0 flex justify-center md:block pt-4 md:pt-0">
-                <div className="relative w-[256px] h-[256px] md:w-full md:h-full">
+              <div className="w-full md:w-2/5 relative bg-gray-100 flex-shrink-0 flex justify-center md:block pt-4 md:p-8">
+                <div className="relative w-[256px] h-[256px] md:w-full md:h-[48vh]">
                   <div
                     className="relative w-full h-full cursor-pointer"
                     onClick={() => setIsFullScreenImage(true)}
@@ -224,7 +224,7 @@ export function ProductsGrid({ products, breadcrumbName = "men", isLoading = fal
                       src={selectedProduct.images[currentImageIndex] || "/placeholder.svg"}
                       alt={selectedProduct.name}
                       fill
-                      className="object-fixed md:object-cover"
+                      className="object-fixed md:object-fixed"
                     />
                   </div>
 
